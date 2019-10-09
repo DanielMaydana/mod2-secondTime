@@ -9,6 +9,7 @@ namespace Model
         public double oneTimeCharge { get; set; }
         public double perOverweightSurcharge { get; set; }
         private Dictionary<string, Tuple<double, double, bool>> perCategoryChargeChart;
+
         public ShippingOperation()
         {
             perCategoryChargeChart = new Dictionary<string, Tuple<double, double, bool>>();

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmazonMain", "AmazonRateCalculator\AmazonMain.csproj", "{6E44732A-FF93-4B63-B407-4A988AD64EA0}"
 EndProject
@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLTesting", "RateCalculator
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{4B238548-B6BA-484D-9236-1CAE0F29E2CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "Calculators\BusinessLogic.csproj", "{3AF4EAA1-53D7-4E04-9020-6FB41547BFD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "Calculators\BusinessLogic.csproj", "{3AF4EAA1-53D7-4E04-9020-6FB41547BFD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Classes\Model.csproj", "{E15234D4-05DA-4858-B086-FE6A6C3BD238}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Classes\Model.csproj", "{E15234D4-05DA-4858-B086-FE6A6C3BD238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{7587BF86-72D8-4654-B891-E9495F4D6A3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUserInterface", "ConsoleUserInterface\ConsoleUserInterface.csproj", "{EE11357E-E420-424F-B035-B25A12ED9946}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{E15234D4-05DA-4858-B086-FE6A6C3BD238}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E15234D4-05DA-4858-B086-FE6A6C3BD238}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E15234D4-05DA-4858-B086-FE6A6C3BD238}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7587BF86-72D8-4654-B891-E9495F4D6A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7587BF86-72D8-4654-B891-E9495F4D6A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7587BF86-72D8-4654-B891-E9495F4D6A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7587BF86-72D8-4654-B891-E9495F4D6A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE11357E-E420-424F-B035-B25A12ED9946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE11357E-E420-424F-B035-B25A12ED9946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE11357E-E420-424F-B035-B25A12ED9946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE11357E-E420-424F-B035-B25A12ED9946}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

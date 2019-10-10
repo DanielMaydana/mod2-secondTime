@@ -7,8 +7,8 @@ namespace AmazonRateCalculator
         static void Main(string[] args)
         {
             Windows myWindow = new Windows();
-            myWindow.Renderize();
-
+            //myWindow.Renderize();
+            myWindow.ReadConfiguration();
         }
     }
 }

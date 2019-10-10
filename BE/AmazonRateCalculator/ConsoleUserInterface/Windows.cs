@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading;
 
 namespace ConsoleUserInterface
@@ -11,6 +12,7 @@ namespace ConsoleUserInterface
         private ShippingOperation StandardOperation;
         private ShippingOperation ExpeditedOperation;
         private ShippingOperation PriorityOperation;
+        private ShippingOperation CustomOperation;
         private Cart myCart;
 
         public Windows()
@@ -18,6 +20,7 @@ namespace ConsoleUserInterface
             StandardOperation = new ShippingOperation();
             ExpeditedOperation = new ShippingOperation();
             PriorityOperation = new ShippingOperation();
+            CustomOperation = new ShippingOperation();
             PopulateTypicalOperations();
             myCart = new Cart();
         }
@@ -223,10 +226,26 @@ namespace ConsoleUserInterface
             PriorityOperation.oneTimeCharge = 29.99;
             PriorityOperation.perOverweightSurcharge = 2.49;
             PriorityOperation.SetCategoryRates(priorityCategory1, 6.99);
-            PriorityOperation.SetCategoryRates(priorityCategory1, 2.99);
-            PriorityOperation.SetCategoryRates(priorityCategory1, 0, 3.99, false);
-            PriorityOperation.SetCategoryRates(priorityCategory1, 0, 3.99, false);
-            PriorityOperation.SetCategoryRates(priorityCategory1, 6.99, 0, false);
+            PriorityOperation.SetCategoryRates(priorityCategory2, 2.99);
+            PriorityOperation.SetCategoryRates(priorityCategory3, 0, 3.99, false);
+            PriorityOperation.SetCategoryRates(priorityCategory4, 0, 3.99, false);
+            PriorityOperation.SetCategoryRates(priorityCategory5, 6.99, 0, false);
+        }
+
+        public void ReadConfiguration()
+        {
+            string name = Convert.ToString(ConfigurationManager.AppSettings["shipmentType"]);
+            double oneTimeCharge = Convert.ToDouble(ConfigurationManager.AppSettings.Get("oneTimeCharge"));
+            double perOverweightSurcharge = Convert.ToDouble(ConfigurationManager.AppSettings.Get("perOverweightSurcharge"));
+            string categoryName = Convert.ToString(ConfigurationManager.AppSettings.Get("categoryName"));
+            double perItemCharge = Convert.ToDouble(ConfigurationManager.AppSettings.Get("perItemCharge"));
+            double perPoundCharge = 0;
+            bool surchargeApplies = true;
+
+            CustomOperation.SetCategoryRates(categoryName, perItemCharge, perPoundCharge, surchargeApplies);
+
+            Console.WriteLine($"Name: {name} | OneTimeCharge: {oneTimeCharge} | PerOverweightSurcharge:{perOverweightSurcharge} | categoryName: {categoryName} | perItemCharge: {perItemCharge}");
+
         }
     }
 }

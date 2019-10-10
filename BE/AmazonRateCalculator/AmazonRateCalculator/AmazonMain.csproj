@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Calculators\BusinessLogic.csproj" />
     <ProjectReference Include="..\Classes\Model.csproj" />
     <ProjectReference Include="..\ConsoleUserInterface\ConsoleUserInterface.csproj" />

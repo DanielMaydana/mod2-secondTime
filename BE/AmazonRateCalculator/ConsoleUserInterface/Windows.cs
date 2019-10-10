@@ -147,6 +147,7 @@ namespace ConsoleUserInterface
                 Console.WriteLine("1. Standard");
                 Console.WriteLine("2. Expedited");
                 Console.WriteLine("3. Priority");
+                Console.WriteLine("4. Customize");
                 Console.WriteLine("[X] Exit");
 
                 string stringedKey = Console.ReadKey().Key.ToString();
@@ -172,6 +173,11 @@ namespace ConsoleUserInterface
                         result = myCalculator.Calculate(myCart, PriorityOperation);
                         Console.WriteLine($"Cost for Priority Shipping: {result}");
                         break;
+
+                    case "D4":
+                        RegisterCustomShipping();
+                        break;
+
                     case "X":
                         Console.Clear();
                         break;
@@ -181,6 +187,129 @@ namespace ConsoleUserInterface
                 finished = true;
             }
 
+            Console.Clear();
+        }
+
+        private void RegisterCustomShipping()
+        {
+            bool finished = false;
+
+            while (!finished)
+            {
+                Console.Clear();
+                Console.WriteLine("Calculate Customised Shipping Cost");
+                Console.WriteLine("1. Manual registration");
+                Console.WriteLine("2. Automatic registration");
+                Console.WriteLine("3. Calculate");
+                Console.WriteLine("[X] Exit");
+
+                string stringedKey = Console.ReadKey().Key.ToString();
+                ShipmentCostCalculator myCalculator = new ShipmentCostCalculator();
+                double result;
+
+                switch (stringedKey)
+                {
+                    case "D1":
+                        ManuallyRegisterCustomShippping();
+                        break;
+
+                    case "D2":
+                        Console.Clear();
+                        ReadCustomShippingConfiguration();
+                        Console.WriteLine($"Customised shipping info read from configuration file.");
+                        Thread.Sleep(2500);
+
+                        break;
+
+                    case "D3":
+                        Console.Clear();
+                        result = myCalculator.Calculate(myCart, CustomOperation);
+                        Console.WriteLine($"Cost for Custom Shipping: {result}");
+                        finished = true;
+                        Thread.Sleep(2500);
+
+                        break;
+
+                    case "X":
+                        Console.Clear();
+                        finished = true;
+                        break;
+                }
+            }
+
+            Console.Clear();
+        }
+
+        private void ManuallyRegisterCustomShippping()
+        {
+            bool finished = false;
+
+            while (!finished)
+            {
+                if (CustomOperation.alreadySetted)
+                {
+                    Console.Clear();
+                    Console.WriteLine("The Custom Shipping has already been set");
+                    Thread.Sleep(1500);
+                    finished = true;
+                    break;
+                }
+
+                Console.Clear();
+                Console.WriteLine("Manual registration");
+                Console.WriteLine("1. Per Item Charge");
+                Console.WriteLine("2. Per Entire Shipment");
+                Console.WriteLine("3. Overweight Surcharge");
+                Console.WriteLine("[X] Exit");
+
+                string stringedKey = Console.ReadKey().Key.ToString();
+                double perItemCharge = 0;
+                double oneTimeCharge = 0;
+                double perOverweightSurcharge = 0;
+
+                bool perItemChargeEntered = false;
+                bool oneTimeChargeEntered = false;
+                bool perOverweightSurchargeEntered = false;
+
+
+
+                switch (stringedKey)
+                {
+                    case "D1":
+                        Console.Clear();
+                        Console.WriteLine("Register Per Item Charge");
+                        perItemCharge = Convert.ToDouble(Console.ReadLine());
+                        perItemChargeEntered = true;
+                        break;
+
+                    case "D2":
+                        Console.Clear();
+                        Console.WriteLine("Register Per Entire Shipment");
+                        oneTimeCharge = Convert.ToDouble(Console.ReadLine());
+                        oneTimeChargeEntered = true;
+                        break;
+
+                    case "D3":
+                        Console.Clear();
+                        Console.WriteLine("Register Overweight Surcharge");
+                        perOverweightSurcharge = Convert.ToDouble(Console.ReadLine());
+                        perOverweightSurchargeEntered = true;
+                        break;
+
+                    case "X":
+                        Console.Clear();
+                        finished = true;
+                        break;
+                }
+
+                if (perItemChargeEntered && oneTimeChargeEntered && perOverweightSurchargeEntered)
+                {
+                    CustomOperation.name = "Custom";
+                    CustomOperation.oneTimeCharge = oneTimeCharge;
+                    CustomOperation.perOverweightSurcharge = perOverweightSurcharge;
+                    CustomOperation.SetCategoryRates("Any", perItemCharge);
+                }
+            }
             Console.Clear();
         }
 
@@ -232,7 +361,7 @@ namespace ConsoleUserInterface
             PriorityOperation.SetCategoryRates(priorityCategory5, 6.99, 0, false);
         }
 
-        public void ReadConfiguration()
+        public void ReadCustomShippingConfiguration()
         {
             string name = Convert.ToString(ConfigurationManager.AppSettings["shipmentType"]);
             double oneTimeCharge = Convert.ToDouble(ConfigurationManager.AppSettings.Get("oneTimeCharge"));
@@ -242,10 +371,10 @@ namespace ConsoleUserInterface
             double perPoundCharge = 0;
             bool surchargeApplies = true;
 
+            CustomOperation.name = name;
+            CustomOperation.oneTimeCharge = oneTimeCharge;
+            CustomOperation.perOverweightSurcharge = perOverweightSurcharge;
             CustomOperation.SetCategoryRates(categoryName, perItemCharge, perPoundCharge, surchargeApplies);
-
-            Console.WriteLine($"Name: {name} | OneTimeCharge: {oneTimeCharge} | PerOverweightSurcharge:{perOverweightSurcharge} | categoryName: {categoryName} | perItemCharge: {perItemCharge}");
-
         }
     }
 }

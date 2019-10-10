@@ -9,6 +9,7 @@ namespace Model
         public double oneTimeCharge { get; set; }
         public double perOverweightSurcharge { get; set; }
         private List<Tuple<List<string>, double, double, bool>> perCategoryChargeChart;
+        public bool alreadySetted { get; private set; }
 
         public ShippingOperation()
         {
@@ -18,15 +19,16 @@ namespace Model
             name = "";
         }
 
-        public void SetCategoryRates(List<string> category, double perItemCharge, double perPoundCharge = 0, bool surchargeApplies = true)
-        {
-            perCategoryChargeChart.Add(new Tuple<List<string>, double, double, bool>(category, perItemCharge, perPoundCharge, surchargeApplies));
-        }
-
         public void SetCategoryRates(string singleCategory, double perItemCharge, double perPoundCharge = 0, bool surchargeApplies = true)
         {
             List<string> singleCategoryList = new List<string> { singleCategory };
-            perCategoryChargeChart.Add(new Tuple<List<string>, double, double, bool>(singleCategoryList, perItemCharge, perPoundCharge, surchargeApplies));
+            SetCategoryRates(singleCategoryList, perItemCharge, perPoundCharge, surchargeApplies);
+        }
+
+        public void SetCategoryRates(List<string> category, double perItemCharge, double perPoundCharge = 0, bool surchargeApplies = true)
+        {
+            perCategoryChargeChart.Add(new Tuple<List<string>, double, double, bool>(category, perItemCharge, perPoundCharge, surchargeApplies));
+            alreadySetted = true;
         }
 
         public double GetPerItemCharge(string categoryToFind)

@@ -8,37 +8,58 @@ namespace Model
         public string name { get; set; }
         public double oneTimeCharge { get; set; }
         public double perOverweightSurcharge { get; set; }
-        private Dictionary<string, Tuple<double, double, bool>> perCategoryChargeChart;
+        //private Dictionary<string, Tuple<double, double, bool>> perCategoryChargeChart;
+        private List<Tuple<List<string>, double, double, bool>> perCategoryChargeChart;
 
         public ShippingOperation()
         {
-            perCategoryChargeChart = new Dictionary<string, Tuple<double, double, bool>>();
+            perCategoryChargeChart = new List<Tuple<List<string>, double, double, bool>>();
             perOverweightSurcharge = 0;
             oneTimeCharge = 0;
             name = "";
         }
 
-        public void setCategoryRates(string categoryName, double perItemCharge, double perPoundCharge = 0, bool surchargeApplies = true)
+        public void SetCategoryRates(List<string> category, double perItemCharge, double perPoundCharge = 0, bool surchargeApplies = true)
         {
-            perCategoryChargeChart.Add(categoryName, new Tuple<double, double, bool>(perItemCharge, perPoundCharge, surchargeApplies));
+            perCategoryChargeChart.Add(new Tuple<List<string>, double, double, bool>(category, perItemCharge, perPoundCharge, surchargeApplies));
         }
 
-        public double GetPerItemCharge(string categoryName)
+        public double GetPerItemCharge(string categoryToFind)
         {
-            double perItemCharge = perCategoryChargeChart[categoryName].Item1;
+            double perItemCharge = FindCategoryInChart(categoryToFind).Item1;
             return perItemCharge;
         }
 
-        public double GetPerPoundCharge(string categoryName)
+        public double GetPerPoundCharge(string categoryToFind)
         {
-            double perPoundCharge = perCategoryChargeChart[categoryName].Item2;
+            double perPoundCharge = FindCategoryInChart(categoryToFind).Item2;
             return perPoundCharge;
         }
 
-        public bool GetOverchargeApplicability(string categoryName)
+        public bool GetOverchargeApplicability(string categoryToFind)
         {
-            bool surchargeApplies = perCategoryChargeChart[categoryName].Item3;
+            bool surchargeApplies = FindCategoryInChart(categoryToFind).Item3;
             return surchargeApplies;
         }
+
+        private Tuple<double, double, bool> FindCategoryInChart(string categoryToFind)
+        {
+            Tuple<double, double, bool> categoryFound;
+
+            foreach (var category in perCategoryChargeChart)
+            {
+                foreach (var categoryItem in category.Item1)
+                {
+                    if (categoryItem == categoryToFind)
+                    {
+                        categoryFound = new Tuple<double, double, bool>(category.Item2, category.Item3, category.Item4);
+                        return categoryFound;
+                    }
+                }
+            }
+
+            throw new ArgumentException("The category for one of the items wasn't found");
+        }
+
     }
 }

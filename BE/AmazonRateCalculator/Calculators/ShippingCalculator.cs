@@ -49,7 +49,7 @@ namespace BusinessLogic
 
         private double CalculatePerPoundCharge(Product prod, ShippingOperation operation)
         {
-            return operation.GetPerPoundCharge(prod.category) * Math.Ceiling(prod.weight) * prod.quantity;
+            return operation.GetPerPoundCharge(prod.category) * Math.Ceiling(prod.quantity * prod.weight);
         }
 
         private static double RoundUp(double input, int places = 2)

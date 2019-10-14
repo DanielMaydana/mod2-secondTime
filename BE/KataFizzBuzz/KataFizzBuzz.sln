@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataFizzBuzz", "KataFizzBuzz\KataFizzBuzz.csproj", "{E30671D0-F223-4076-9F42-3012F5DED416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{7FD60DFF-7B94-4ACC-AA1E-29502C02B0E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{5C2AF163-78D5-45D6-905E-B68498753345}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E30671D0-F223-4076-9F42-3012F5DED416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E30671D0-F223-4076-9F42-3012F5DED416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E30671D0-F223-4076-9F42-3012F5DED416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E30671D0-F223-4076-9F42-3012F5DED416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD60DFF-7B94-4ACC-AA1E-29502C02B0E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD60DFF-7B94-4ACC-AA1E-29502C02B0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD60DFF-7B94-4ACC-AA1E-29502C02B0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD60DFF-7B94-4ACC-AA1E-29502C02B0E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2AF163-78D5-45D6-905E-B68498753345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2AF163-78D5-45D6-905E-B68498753345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2AF163-78D5-45D6-905E-B68498753345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2AF163-78D5-45D6-905E-B68498753345}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3ABC896D-F3C4-46F7-A706-140216E96347}
+	EndGlobalSection
+EndGlobal

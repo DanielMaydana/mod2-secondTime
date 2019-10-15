@@ -20,7 +20,6 @@ namespace Models
             word += IsBuzzMultiple(number);
             word += IsShazamMultiple(number);
 
-
             if (word == EmptyWord) word = number.ToString();
 
             return word;

@@ -1,13 +1,24 @@
-const btn = document.querySelector('button');
+const axios = require('axios')
 
-btn.addEventListener('click', () => {
-    let myDate;
-    for (let i = 0; i < 10000000; i++) {
-        let date = new Date();
-        myDate = date
+apiGH = "https://api.github.com/users";
+apiDCEO = "https://dog.ceo/api/breeds/list/all";
+
+var getResponse = async () => {
+
+    try {
+        const response = await axios({
+            url: apiGH,
+            method: 'get'
+        })
+
+        console.log(response);
     }
-    console.log(myDate);
-    let pElem = document.createElement('p');
-    pElem.textContent = 'This is a newly-added paragraph.';
-    document.body.appendChild(pElem);
-});
+    catch (e) {
+        console.log(e);
+    }
+
+}
+
+for (var i = 0; i < 50; i++) {
+    getResponse();
+}

@@ -1,0 +1,52 @@
+.navbar__box {
+    animation-name: appearNavbarBox;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+
+.content__box {
+    animation-name: appearContentBox;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+}
+
+.navbar__box:nth-child(1) { animation-delay: 1000ms; }
+.navbar__box:nth-child(2) { animation-delay: 1500ms; }
+.navbar__box:nth-child(3) { animation-delay: 2000ms; }
+.navbar__box:nth-child(4) { animation-delay: 2500ms; }
+.navbar__box:nth-child(5) { animation-delay: 3000ms; }
+.navbar__box:nth-child(6) { animation-delay: 3500ms; }
+.navbar__box:nth-child(7) { animation-delay: 4000ms; }
+.navbar__box:nth-child(8) { animation-delay: 4500ms; }
+.navbar__box:nth-child(9) { animation-delay: 5000ms; }
+.navbar__box:nth-child(10) { animation-delay: 5500ms; }
+.navbar__box:nth-child(11) { animation-delay: 6000ms; }
+.navbar__box:nth-child(12) { animation-delay: 6500ms; }
+
+.content__box:nth-child(1) { animation-delay: 1000ms; }
+.content__box:nth-child(2) { animation-delay: 1500ms; }
+.content__box:nth-child(3) { animation-delay: 2000ms; }
+.content__box:nth-child(4) { animation-delay: 2500ms; }
+.content__box:nth-child(5) { animation-delay: 3000ms; }
+.content__box:nth-child(6) { animation-delay: 3500ms; }
+.content__box:nth-child(7) { animation-delay: 4000ms; }
+.content__box:nth-child(8) { animation-delay: 4500ms; }
+.content__box:nth-child(9) { animation-delay: 5000ms; }
+.content__box:nth-child(10) { animation-delay: 5500ms; }
+.content__box:nth-child(11) { animation-delay: 6000ms; }
+.content__box:nth-child(12) { animation-delay: 6500ms; }
+.content__box:nth-child(14) { animation-delay: 7000ms; }
+.content__box:nth-child(15) { animation-delay: 7500ms; }
+
+
+@keyframes  appearNavbarBox {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes  appearContentBox {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

@@ -4,29 +4,28 @@ using System.Linq;
 
 namespace Models
 {
-    public class CatalogStore
+    public class Store<T>
     {
-        public List<CatalogMovie> Store { get; set; }
+        public List<T> Listing { get; set; }
 
-        public CatalogStore()
+        public Store()
         {
-            this.Store = new List<CatalogMovie>();
+            Listing = new List<T>();
         }
 
-        public CatalogStore(List<CatalogMovie> moviesToStore)
+        public Store(List<T> moviesToStore)
         {
-            this.Store = moviesToStore;
+            this.Listing = moviesToStore;
         }
 
-        public CatalogMovie AddToStore(object toAdd)
+        public T AddToStore(T movieToAdd)
         {
-            var movieToAdd = toAdd as CatalogMovie;
-            Store.Add(movieToAdd);
+            Listing.Add(movieToAdd);
 
             return movieToAdd;
         }
 
-        public static bool operator ==(CatalogStore catalogA, CatalogStore catalogB)
+        public static bool operator ==(Store<T> catalogA, Store<T> catalogB)
         {
             if (object.ReferenceEquals(catalogA, catalogB))
             {
@@ -41,17 +40,17 @@ namespace Models
             return catalogA.Equals(catalogB);
         }
 
-        public static bool operator !=(CatalogStore catalogA, CatalogStore catalogB)
+        public static bool operator !=(Store<T> catalogA, Store<T> catalogB)
         {
             return !(catalogA == catalogB);
         }
 
         public override bool Equals(object value)
         {
-            CatalogStore toCompare = value as CatalogStore;
+            Store<T> toCompare = value as Store<T>;
 
-            var firstNotSecond = this.Store.Except(toCompare.Store).ToList();
-            var secondNotFirst = toCompare.Store.Except(this.Store).ToList();
+            var firstNotSecond = this.Listing.Except(toCompare.Listing).ToList();
+            var secondNotFirst = toCompare.Listing.Except(this.Listing).ToList();
 
             return !object.ReferenceEquals(null, toCompare)
                 && !firstNotSecond.Any() && !secondNotFirst.Any();
@@ -65,7 +64,7 @@ namespace Models
                 const int HashingMultiplier = 16777619;
                 int hash = HashingBase;
 
-                hash = (hash * HashingMultiplier) ^ (!object.ReferenceEquals(null, this.Store) ? this.Store.GetHashCode() : 0);
+                hash = (hash * HashingMultiplier) ^ (!object.ReferenceEquals(null, this.Listing) ? this.Listing.GetHashCode() : 0);
 
                 return hash;
             }

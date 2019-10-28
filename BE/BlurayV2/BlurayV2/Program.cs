@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Testing;
-using Testing.BusinessTesting;
 
 namespace BlurayV2
 {
@@ -12,7 +11,7 @@ namespace BlurayV2
     {
         static void Main(string[] args)
         {
-
+            //Catalog<>;
         }
     }
 }

@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 
-namespace ModelsTesting
+namespace Testing.Models
 {
     [TestClass]
     public class MovieTesting

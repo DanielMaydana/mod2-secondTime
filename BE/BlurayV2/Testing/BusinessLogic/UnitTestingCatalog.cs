@@ -3,9 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using System;
 using System.Collections.Generic;
-using Testing.BusinessTesting;
+using Testing.Mocks;
 
-namespace ModelsTesting
+namespace Testing.BusinessLogic
 {
     [TestClass]
     public class ListingTesting
@@ -16,6 +16,7 @@ namespace ModelsTesting
             Movie myMovie = new Movie("Rival Sons", 1989, "Jay Buchanan");
 
             Catalog myCatalog = new Catalog();
+
             var movieAdded = myCatalog.AddSingleMovie(myMovie);
 
             var myCatalogMovie = new CatalogMovie("Rival Sons", 1989, "Jay Buchanan", 1003);
@@ -81,7 +82,7 @@ namespace ModelsTesting
                 new CatalogMovie("Sound City", 2014, "Dave Grohl", 1004)
             };
 
-            CatalogStore myExpectedStore = new CatalogStore(moviesExpected);
+            Store<CatalogMovie> myExpectedStore = new Store<CatalogMovie>(moviesExpected);
 
             var moviesAdded = myCatalog.GetStore();
 

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ModelsTesting\ListingTesting.cs~RF71705205.TMP" />
+    <None Remove="Models\ListingTesting.cs~RF71705205.TMP" />
   </ItemGroup>
 
   <ItemGroup>

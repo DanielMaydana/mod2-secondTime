@@ -8,10 +8,10 @@ namespace BusinessLogic
     public class Catalog
     {
 
-        public CatalogStore CatalogStore { get; private set; }
+        public Store<CatalogMovie> CatalogStore { get; private set; }
         private uint CatalogCode;
 
-        public Catalog(CatalogStore store)
+        public Catalog(Store<CatalogMovie> store)
         {
             this.CatalogStore = store;
             this.CatalogCode = 1000;
@@ -19,7 +19,7 @@ namespace BusinessLogic
 
         public Catalog()
         {
-            this.CatalogStore = new CatalogStore();
+            this.CatalogStore = new Store<CatalogMovie>();
             this.CatalogCode = 1000;
         }
 
@@ -31,7 +31,7 @@ namespace BusinessLogic
             {
                 CatalogCode++;
                 CatalogMovie cataloguedMovie = new CatalogMovie(movie.Name, movie.Year, movie.Director, CatalogCode);
-                return CatalogStore.AddToStore(cataloguedMovie);
+                return this.CatalogStore.AddToStore(cataloguedMovie);
             }
 
             throw new ArgumentException($"The movie '{movie.Name}' ({movie.Year}) was previously added to the catalog.");
@@ -39,7 +39,7 @@ namespace BusinessLogic
 
         private bool ContainsMovieDuplicates(Movie movie)
         {
-            foreach (var catalogMovie in this.CatalogStore.Store)
+            foreach (var catalogMovie in this.CatalogStore.Listing)
             {
                 if (catalogMovie == movie) return true;
             }
@@ -47,9 +47,9 @@ namespace BusinessLogic
             return false;
         }
 
-        private bool ContainsCatlogMovieDuplicates(CatalogStore catalog)
+        private bool ContainsCatlogMovieDuplicates(Store<CatalogMovie> catalog)
         {
-            bool hasDuplicates = catalog.Store.GroupBy(
+            bool hasDuplicates = catalog.Listing.GroupBy(
                     obj => new { obj.Name, obj.Year, obj.Director, obj.Code }).
                     Where(obj => obj.Skip(1).Any()
                 ).Any();
@@ -59,22 +59,22 @@ namespace BusinessLogic
 
         public void SetStore(object store)
         {
-            CatalogStore storeToSet = store as CatalogStore;
+            Store<CatalogMovie> storeToSet = store as Store<CatalogMovie>;
 
             if (ContainsCatlogMovieDuplicates(storeToSet))
             {
                 throw new ArgumentException($"The store intended to be assigned, contains duplicates.");
             }
 
-            var storeCount = storeToSet.Store.Count - 1;
-            this.CatalogCode = storeToSet.Store[storeCount].Code;
+            var storeCount = storeToSet.Listing.Count - 1;
+            this.CatalogCode = storeToSet.Listing[storeCount].Code;
 
             this.CatalogStore = storeToSet;
         }
 
-        public CatalogStore GetStore()
+        public Store<CatalogMovie> GetStore()
         {
-            return CatalogStore;
+            return this.CatalogStore;
         }
 
         public uint GetMovieCount()

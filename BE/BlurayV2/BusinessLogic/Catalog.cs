@@ -7,20 +7,19 @@ namespace BusinessLogic
 {
     public class Catalog
     {
-
-        public Store<CatalogMovie> CatalogStore { get; private set; }
-        private uint CatalogCode;
+        public Store<CatalogMovie> CatalogStore { get; set; }
+        private uint CatalogCount;
 
         public Catalog(Store<CatalogMovie> store)
         {
-            this.CatalogStore = store;
-            this.CatalogCode = 1000;
+            this.CatalogStore = SetStore(store);
+            this.CatalogCount = 1000;
         }
 
         public Catalog()
         {
             this.CatalogStore = new Store<CatalogMovie>();
-            this.CatalogCode = 1000;
+            this.CatalogCount = 1000;
         }
 
         public CatalogMovie AddSingleMovie(object toAdd)
@@ -29,8 +28,8 @@ namespace BusinessLogic
 
             if (!ContainsMovieDuplicates(movie))
             {
-                CatalogCode++;
-                CatalogMovie cataloguedMovie = new CatalogMovie(movie.Name, movie.Year, movie.Director, CatalogCode);
+                this.CatalogCount++;
+                CatalogMovie cataloguedMovie = new CatalogMovie(movie.Name, movie.Year, movie.Director, this.CatalogCount);
                 return this.CatalogStore.AddToStore(cataloguedMovie);
             }
 
@@ -41,35 +40,47 @@ namespace BusinessLogic
         {
             foreach (var catalogMovie in this.CatalogStore.Listing)
             {
-                if (catalogMovie == movie) return true;
+                if (catalogMovie.Name == movie.Name
+                    && catalogMovie.Year == movie.Year
+                    && catalogMovie.Director == movie.Director)
+
+                    return true;
             }
 
             return false;
         }
 
-        private bool ContainsCatlogMovieDuplicates(Store<CatalogMovie> catalog)
+        private bool CheckDuplicatesInCatalog(Store<CatalogMovie> catalog)
         {
             bool hasDuplicates = catalog.Listing.GroupBy(
-                    obj => new { obj.Name, obj.Year, obj.Director, obj.Code }).
+                    obj => new { obj.Name, obj.Year, obj.Director, obj.CatalogCode }).
                     Where(obj => obj.Skip(1).Any()
                 ).Any();
 
             return hasDuplicates;
         }
 
-        public void SetStore(object store)
+        public Store<CatalogMovie> SetStore(object store)
         {
-            Store<CatalogMovie> storeToSet = store as Store<CatalogMovie>;
+            Store<CatalogMovie> storeSetted = store as Store<CatalogMovie>;
 
-            if (ContainsCatlogMovieDuplicates(storeToSet))
+            if (CheckDuplicatesInCatalog(storeSetted))
             {
                 throw new ArgumentException($"The store intended to be assigned, contains duplicates.");
             }
 
-            var storeCount = storeToSet.Listing.Count - 1;
-            this.CatalogCode = storeToSet.Listing[storeCount].Code;
+            this.CatalogCount = GetCatalogCode(storeSetted);
 
-            this.CatalogStore = storeToSet;
+            this.CatalogStore = storeSetted;
+
+            return this.CatalogStore;
+        }
+
+        private uint GetCatalogCode(Store<CatalogMovie> storeSetted)
+        {
+            var storeCount = storeSetted.Listing.Count - 1;
+
+            return storeSetted.Listing[storeCount].CatalogCode;
         }
 
         public Store<CatalogMovie> GetStore()
@@ -79,7 +90,7 @@ namespace BusinessLogic
 
         public uint GetMovieCount()
         {
-            return CatalogCode;
+            return this.CatalogCount;
         }
     }
 }

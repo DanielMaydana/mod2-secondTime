@@ -35,5 +35,31 @@ namespace Testing.Models
 
             Assert.AreEqual(expectedName, myMovie.Name);
         }
+
+        [TestMethod]
+        public void MovieEquals_ReturnsATrueValue_WhenComparedTwoIdenticalMovies()
+        {
+            Movie myMovieA = new Movie("Rival Sons", 1989, "Jay Buchanan");
+            Movie myMovieB = new Movie("Rival Sons", 1989, "Jay Buchanan");
+
+            bool eval = myMovieA.Equals(myMovieB);
+
+            bool expectedEval = true;
+
+            Assert.AreEqual(expectedEval, eval);
+        }
+
+        [TestMethod]
+        public void MovieEquals_ReturnsAFalseValue_WhenComparedTwoNonIdenticalMovies()
+        {
+            Movie myMovieA = new Movie("Rival Sons", 1989, "Jay Buchanan");
+            Movie myMovieB = new Movie("Rival Sons", 2011, "Jay Buchanan");
+
+            bool eval = myMovieA.Equals(myMovieB);
+
+            bool expectedEval = false;
+
+            Assert.AreEqual(expectedEval, eval);
+        }
     }
 }

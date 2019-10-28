@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Models
 {
-    public class Store<T>
+    public class Store<T> : IEnumerable<T>
     {
         public List<T> Listing { get; set; }
-
         public Store()
         {
             Listing = new List<T>();
@@ -23,6 +23,11 @@ namespace Models
             Listing.Add(movieToAdd);
 
             return movieToAdd;
+        }
+
+        public void Add(T movieToAdd)
+        {
+            Listing.Add(movieToAdd);
         }
 
         public static bool operator ==(Store<T> catalogA, Store<T> catalogB)
@@ -68,6 +73,16 @@ namespace Models
 
                 return hash;
             }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return ((IEnumerable<T>)Listing).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable<T>)Listing).GetEnumerator();
         }
     }
 }

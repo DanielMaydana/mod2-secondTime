@@ -11,32 +11,33 @@ namespace BlurayV2
     {
         static void Main(string[] args)
         {
-            Inventory myInventory = new Inventory(new FakeCatalog());
+            List<string> myList = new List<string>();
 
-            var inventoryStore = myInventory.GetInventoryStore();
+            //myList.Add("piledriver");
+            //myList.Add("waltz");
+            //myList.Add("miserable");
+            //myList.Add("shoes");
 
-            var expectedStore = new Store<InventoryMovie>()
+            //Console.WriteLine(found == null);
+
+            var mymy = new brmc();
+            mymy.find();
+        }
+
+        public class brmc
+        {
+            List<string> myList;
+            public brmc()
             {
-                new InventoryMovie("In My Time Of Dying", 1975, "Robert Plant", 1000, 1000, 0),
-                new InventoryMovie("Houses of The Holy", 1975, "Jimmy Page", 1001, 1001, 0),
-                new InventoryMovie("Red Dress", 2002, "Alex Turner", 1002, 1002, 0),
-                new InventoryMovie("Night Flight", 1999, "Karen O", 1003, 1003, 0),
-                new InventoryMovie("Sick Again", 2012,  "Matt Helders", 1004, 1004, 0)
-            };
-
-            foreach (var x in inventoryStore)
-            {
-                Console.WriteLine("{0} {1} {2} {3}", x.Quantity, x.Name, x.CatalogCode, x.InventoryCode);
             }
 
-            var aux = expectedStore.Listing.Find(xx => xx.Name == "Houses of The Holy22");
+            public void find()
+            {
+                string result = myList.Find(x => x.Equals("YES"));
 
-            Console.WriteLine(aux.GetType());
-
-            //var a = new InventoryMovie("Houses of The Holy", 1975, "Jimmy Page", 1001, 1001, 0);
-            //var b = new InventoryMovie("Houses of The Holy", 1975, "Jimmy Page", 1001, 1001, 45);
-
-            //Console.WriteLine(a == b);
+                Console.WriteLine("{0} {1}", result, result == null);
+            }
         }
+
     }
 }

@@ -7,7 +7,7 @@ namespace Testing.Mocks
     {
         public FakeCatalog()
         {
-            this.CatalogStore = new Store<CatalogMovie>
+            this.CatalogStore = new Store<CatalogMovie>()
             {
                 new CatalogMovie("In My Time Of Dying", 1975, "Robert Plant", 1001),
                 new CatalogMovie("Houses of The Holy", 1975, "Jimmy Page", 1002),

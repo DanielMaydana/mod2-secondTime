@@ -7,12 +7,19 @@ namespace BusinessLogic
     {
         private Store<InventoryMovie> InventoryStore { get; set; }
         private uint InventoryCount;
-        private const uint DEFAULT_QTY = 0;
+        private const uint DEFAULT_QTY = 1;
 
         public Inventory(Catalog catalog)
         {
             this.InventoryCount = 1000;
-            InventoryStore = PopulateInventoryStore(catalog);
+            this.InventoryStore = new Store<InventoryMovie>();
+            this.InventoryStore = PopulateInventoryStore(catalog);
+        }
+
+        public Inventory()
+        {
+            this.InventoryCount = 1000;
+            this.InventoryStore = new Store<InventoryMovie>();
         }
 
         private Store<InventoryMovie> PopulateInventoryStore(Catalog catalog)
@@ -21,19 +28,65 @@ namespace BusinessLogic
 
             foreach (var catalogMovie in catalog.CatalogStore)
             {
-                this.InventoryCount++;
+                InventoryMovie inventoryMovie = GetInventoryMovie(catalogMovie, momentaryStore);
 
-                momentaryStore.Add(new InventoryMovie(
-                    catalogMovie.Name,
-                    catalogMovie.Year,
-                    catalogMovie.Director,
-                    catalogMovie.CatalogCode,
-                    this.InventoryCount,
-                    Inventory.DEFAULT_QTY
-                ));
+                if (inventoryMovie == null)
+                {
+                    inventoryMovie = CreateInventoryMovie(catalogMovie);
+                    momentaryStore.Add(inventoryMovie);
+                }
+                else
+                {
+                    inventoryMovie.Quantity++;
+                }
             }
 
             return momentaryStore;
+        }
+
+        private InventoryMovie CreateInventoryMovie(CatalogMovie catalogMovie)
+        {
+            this.InventoryCount++;
+
+            InventoryMovie inventoryMovie = new InventoryMovie(
+                catalogMovie.Name,
+                catalogMovie.Year,
+                catalogMovie.Director,
+                catalogMovie.CatalogCode,
+                this.InventoryCount,
+                Inventory.DEFAULT_QTY
+            );
+
+            return inventoryMovie;
+        }
+
+        private InventoryMovie GetInventoryMovie(CatalogMovie catalogMovie, Store<InventoryMovie> store)
+        {
+            var movieToReturn = store.Listing.Find(
+                movie => movie.Name.Equals(catalogMovie.Name)
+                            && movie.Director.Equals(catalogMovie.Director)
+                            && movie.Year.Equals(catalogMovie.Year)
+                            && movie.CatalogCode.Equals(catalogMovie.CatalogCode)
+            );
+
+            return movieToReturn;
+        }
+
+        public InventoryMovie AddSingleMovie(CatalogMovie catalogMovie)
+        {
+            InventoryMovie inventoryMovie = GetInventoryMovie(catalogMovie, this.InventoryStore);
+
+            if (inventoryMovie == null)
+            {
+                inventoryMovie = CreateInventoryMovie(catalogMovie);
+                this.InventoryStore.Add(inventoryMovie);
+            }
+            else
+            {
+                inventoryMovie.Quantity++;
+            }
+
+            return inventoryMovie;
         }
 
         public Store<InventoryMovie> GetInventoryStore()

@@ -58,6 +58,18 @@ namespace Testing.BusinessLogic
         }
 
         [TestMethod]
+        public void GetMovieByCode_ThrowsException_WhenAInventoryCodeIsNotFound()
+        {
+            Inventory myInventory = new Inventory(new FakeCatalog());
+
+            var actualException = Assert.ThrowsException<ArgumentException>(() => myInventory.GetMovieByCode(3024));
+
+            string expectedMessage = "The movie with the code '3024' was not found in the inventory.";
+
+            Assert.AreEqual(expectedMessage, actualException.Message);
+        }
+
+        [TestMethod]
         public void AddSingleMovie_ReturnsNewInventoryMovie_WhenAddedASingleCatalogMovie()
         {
             Inventory myInventory = new Inventory();
@@ -102,6 +114,20 @@ namespace Testing.BusinessLogic
             var actualMovie = myInventory.AddSingleMovie(myMovieB);
 
             InventoryMovie expectedMovie = new InventoryMovie("Hollow Bones", 2017, "Scott Snyder", 1009, 1001, 2);
+
+            Assert.AreEqual(expectedMovie, actualMovie);
+        }
+
+        [TestMethod]
+        public void AddSingleMovie_ReturnsRightInventoryMovie_WhenInventoryInstiantiatedWithASimulatedCatalog()
+        {
+            Inventory myInventory = new Inventory(new FakeDuplicatesCatalog());
+
+            CatalogMovie myMovie = new CatalogMovie("Red Dress", 2002, "Jon Paul Jones", 1031);
+
+            var actualMovie = myInventory.AddSingleMovie(myMovie);
+
+            InventoryMovie expectedMovie = new InventoryMovie("Red Dress", 2002, "Jon Paul Jones", 1031, 1002, 4);
 
             Assert.AreEqual(expectedMovie, actualMovie);
         }

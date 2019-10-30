@@ -1,0 +1,13 @@
+.avatar {
+    user-select: none;
+}
+
+.avatar img {
+    height: var(--avatarLength);
+    width: var(--avatarLength);
+    border-radius: calc(var(--avatarLength) / 2);
+}
+
+.avatar.small { --avatarLength: 30px; }
+.avatar.medium { --avatarLength: 50px; }
+.avatar.large { --avatarLength: 80px; }

@@ -1,0 +1,69 @@
+.plantCard {
+    --padding: 15px;
+    --avatarSide: 50px;
+    height: 80px;
+    width: 100%;
+    background: tomato;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    user-select: none;
+    background-position: center;
+    transition: background 800ms;
+}
+
+.plantCard:hover {
+    background: #a5a5a5 radial-gradient(circle, transparent 1%, #a5a5a5 1%) center/15000%;
+    cursor: pointer;
+  }
+
+.plantCard:active {
+    background-color: #e7e7e7;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.plantCard .avatar {
+    position: relative;
+    display: inline-block;
+    margin: var(--padding);
+}
+
+.plantCard__info {
+    height: 44px;
+    position: relative;
+    display: inline-block;
+    width: calc(100% - var(--avatarSide) - var(--padding) * 2);
+    min-width: 275px;
+}
+
+.plantCard__name {
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    height: 22px;
+}
+
+.plantCard__stats {
+    position: relative;
+    height: 22px;
+    line-height: 22px;
+}
+
+.plantCard__stats .plantCard__data:nth-child(n + 2) {
+    margin-left: 15px;
+}
+
+.plantCard__data {
+    width: 75px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.plantCard__data .name{
+    display: none;
+}
+
+.plantCard__data .material-icons {
+    font-size: 20px;
+}

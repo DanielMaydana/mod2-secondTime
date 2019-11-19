@@ -1,0 +1,20 @@
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #2F2F2F;
+}
+
+.pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: black;
+  position: relative;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -10px;
+}

@@ -2,7 +2,7 @@
 
 namespace Algorithms
 {
-    public interface IInnumerate
+    public interface IIterator
     {
         object Current();
         bool IsDone();

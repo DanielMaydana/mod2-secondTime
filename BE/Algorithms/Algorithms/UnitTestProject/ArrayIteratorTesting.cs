@@ -12,7 +12,7 @@ namespace UnitTestProject
         {
             object[] charArray = { 'a', 'b' };
 
-            ArrayIterator myArray = new ArrayIterator(charArray);
+            IIterator myArray = new ArrayIterator(charArray);
 
             var actual = myArray.Current();
 
@@ -26,7 +26,7 @@ namespace UnitTestProject
         {
             object[] charArray = { 'a', 'b', 'c', 'd' };
 
-            ArrayIterator myArray = new ArrayIterator(charArray);
+            IIterator myArray = new ArrayIterator(charArray);
 
             myArray.Next();
 
@@ -42,7 +42,7 @@ namespace UnitTestProject
         {
             object[] charArray = { 'a', 'b', 'c', 'd' };
 
-            ArrayIterator myArray = new ArrayIterator(charArray);
+            IIterator myArray = new ArrayIterator(charArray);
 
             myArray.Next();
 
@@ -62,7 +62,7 @@ namespace UnitTestProject
         {
             object[] charArray = { 'a', 'b', 'c', 'd' };
 
-            ArrayIterator myArray = new ArrayIterator(charArray);
+            IIterator myArray = new ArrayIterator(charArray);
 
             myArray.Last();
 
@@ -78,7 +78,7 @@ namespace UnitTestProject
         {
             object[] charArray = { 'a', 'b', 'c', 'd' };
 
-            ArrayIterator myArray = new ArrayIterator(charArray);
+            IIterator myArray = new ArrayIterator(charArray);
 
             myArray.First();
 
@@ -94,7 +94,7 @@ namespace UnitTestProject
         {
             object[] charArray = { 'a', 'b', 'c', 'd' };
 
-            ArrayIterator myArray = new ArrayIterator(charArray);
+            IIterator myArray = new ArrayIterator(charArray);
 
             myArray.Next();
 
@@ -103,6 +103,76 @@ namespace UnitTestProject
             myArray.Next();
 
             myArray.Next();
+
+            var actual = myArray.IsDone();
+
+            var expected = true;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Current_ReturnsThirdPosition_WhenUsedTheConstructorWithStartingIndexAndLength()
+        {
+            object[] charArray = { 'a', 'b', 'c', 'd' };
+
+            uint startingPosition = 3, length = 1;
+
+            IIterator myArray = new ArrayIterator(charArray, startingPosition, length);
+
+            var actual = myArray.Current();
+
+            var expected = 'c';
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsDone_ReturnsTrue_WhenUsedTheConstructorWithStartingIndexAndLength()
+        {
+            object[] charArray = { 'a', 'b', 'c', 'd', 'e', 'f' };
+
+            uint startingPosition = 2, length = 3;
+
+            IIterator myArray = new ArrayIterator(charArray, startingPosition, length);
+
+            myArray.Last();
+
+            var actual = myArray.Current();
+
+            var expected = 'd';
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsDone_ReturnsThirdPosition_WhenStartingFromSecondPositionAndNextCalledOnce()
+        {
+            object[] charArray = { 'a', 'b', 'c', 'd', 'e', 'f' };
+
+            uint startingPosition = 2, length = 3;
+
+            IIterator myArray = new ArrayIterator(charArray, startingPosition, length);
+
+            myArray.Next();
+
+            var actual = myArray.Current();
+
+            var expected = 'c';
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsDone_ReturnsTrue_WhenStartingFromSecondPositionAndLastCalled()
+        {
+            object[] charArray = { 'a', 'b', 'c', 'd', 'e', 'f' };
+
+            uint startingPosition = 2, length = 3;
+
+            IIterator myArray = new ArrayIterator(charArray, startingPosition, length);
+
+            myArray.Last();
 
             var actual = myArray.IsDone();
 

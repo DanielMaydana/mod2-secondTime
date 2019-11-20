@@ -3,28 +3,46 @@ using System;
 
 namespace Iterators
 {
-    public class ArrayIterator : IInnumerate
+    public class ArrayIterator : IIterator
     {
         private object[] objArray;
         private uint index;
+        private uint start;
+        private uint finish;
+
+        public ArrayIterator(object[] array)
+        {
+            this.objArray = array;
+            this.index = this.start = 0;
+            this.finish = (uint)array.Length - 1;
+        }
+
+        public ArrayIterator(object[] array, uint start, uint length) : this(array)
+        {
+            this.index = this.start = start - 1;
+            this.finish = this.index + length - 1;
+        }
 
         public object Current()
         {
-            return objArray[index];
+            return this.objArray[index];
         }
 
         public bool IsDone()
         {
-            return index == objArray.Length;
+            return this.index <= this.start || this.index >= this.finish;
         }
+
         public void Next()
         {
             this.index++;
         }
+
         public void Previous()
         {
             this.index--;
         }
+
         public void First()
         {
             this.index = 0;
@@ -32,13 +50,7 @@ namespace Iterators
 
         public void Last()
         {
-            this.index = (uint)(objArray.Length - 1);
-        }
-
-        public ArrayIterator(object[] array)
-        {
-            this.index = 0;
-            this.objArray = array;
+            this.index = this.finish;
         }
     }
 }

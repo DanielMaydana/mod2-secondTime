@@ -1,29 +1,25 @@
-// const axios = require('axios')
+const axios = require('axios')
 
-// apiGH = "https://api.github.com/users/DanielMaydana";
-// apiDCEO = "https://dog.ceo/api/breeds/list/all";
+apiGH = "https://api.github.com/users/DanielMaydana";
+apiDCEO = "https://dog.ceo/api/breeds/list/all";
+apiTest = "http://10.28.111.49:80/api/user";
 
-// var getResponse = async (index = 0) => {
+var getResponse = async (index = 0) => {
 
-//     var superResponse;
+    try {
+        const response = await axios({
+            url: apiTest,
+            method: 'GET'
+        })
 
-//     try {
-//         const response = await axios({
-//             url: apiDCEO,
-//             method: 'get'
-//         })
+        console.log(response.data);
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
 
-//         superResponse = response;
-//         // console.log(response.data, index);
-//     }
-//     catch (e) {
-//         console.log(e);
-//     }
-
-//     console.log(superResponse);
-// }
-
-// getResponse();
+getResponse();
 
 
 // for (var i = 0; i < 10; i++) {
@@ -35,16 +31,16 @@
 //     setTimeout(() => console.log(i), 2000);
 // }
 
-applicationCache.getUser(id)
+// applicationCache.getUser(id)
 
-const user = await ExtensionScriptApis.getUsers();
+// const user = await ExtensionScriptApis.getUsers();
 
-const userId = users.map(user => user.id);
+// const userId = users.map(user => user.id);
 
-const completeUsers = await getUsersInfo(userIds);
+// const completeUsers = await getUsersInfo(userIds);
 
-function getUserInfo(/* USERS ARRAY userIds */) {
-    // ???
-    // Promise.all NOT await
-}
+// function getUserInfo(/* USERS ARRAY userIds */) {
+//     // ???
+//     // Promise.all NOT await
+// }
 

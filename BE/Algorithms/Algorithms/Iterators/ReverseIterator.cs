@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Iterators
 {
-    public class ReverseIterator : IInnumerate
+    public class ReverseIterator : IIterator
     {
-        private IInnumerate iterator;
-        private object first;
+        private IIterator iterator;
+        private object last;
 
-        public ReverseIterator(IInnumerate iter)
+        public ReverseIterator(IIterator iter)
         {
             this.iterator = iter;
-            this.first = iter.Current();
+            this.last = iter.Current();
             this.iterator.Last();
         }
 
@@ -24,7 +24,7 @@ namespace Iterators
 
         public bool IsDone()
         {
-            return this.iterator.Current() == this.first;
+            return this.iterator.Current() == this.last;
         }
         public void Next()
         {

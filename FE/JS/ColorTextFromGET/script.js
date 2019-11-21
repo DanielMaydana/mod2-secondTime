@@ -1,25 +1,25 @@
-// const axios = require('axios')
+const axios = require('axios')
 
-// apiGH = "https://api.github.com/users/DanielMaydana";
-// apiDCEO = "https://dog.ceo/api/breeds/list/all";
-// apiTest = "http://10.28.111.49:80/api/user";
+apiGH = "https://api.github.com/users/DanielMaydana";
+apiDCEO = "https://dog.ceo/api/breeds/list/all";
+apiTest = "http://10.28.111.49:80/api/user";
 
-// var getResponse = async (index = 0) => {
+var getResponse = async (index = 0) => {
 
-//     try {
-//         const response = await axios({
-//             url: apiTest,
-//             method: 'GET'
-//         })
+    try {
+        const response = await axios({
+            url: apiTest,
+            method: 'GET'
+        })
 
-//         console.log(response.data);
-//     }
-//     catch (e) {
-//         console.log(e);
-//     }
-// }
+        console.log(response.data);
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
 
-// getResponse();
+getResponse();
 
 (function () {
 

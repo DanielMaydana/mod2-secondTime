@@ -94,3 +94,4 @@ const letterIndividualCount = arrayified2.reduce((acc, elem) => {
 }, {})
 
 console.log(letterIndividualCount);
+

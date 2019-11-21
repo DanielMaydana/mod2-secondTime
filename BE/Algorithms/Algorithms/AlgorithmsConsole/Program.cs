@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lists;
+using System;
 
 namespace AlgorithmsConsole
 {
@@ -6,55 +7,61 @@ namespace AlgorithmsConsole
     {
         static void Main(string[] args)
         {
-            MyClass myclass = new MyClass();
+            LinkedList mylist = new LinkedList();
+            //mylist.Insert(1, 0);
+            //mylist.Insert(2, 1);
+            //mylist.Insert(3, 2);
+            //mylist.Insert(4, 3);
 
-            int number = 10;
+            //mylist.Show();
+            //Console.WriteLine("---------");
+            //mylist.ShowReverse();
 
-            MyMethod(myclass, ref number);
+            //Console.WriteLine("\nNEW CASE\n");
 
-            Console.WriteLine("f1: {0} f2:{1}", myclass.value, number);
+            //mylist.Insert(5, 4);
 
-            Rectangle rect = new Rectangle(8, 3);
+            //mylist.Show();
+            //Console.WriteLine("---------");
+            //mylist.ShowReverse();
 
-            rect.GetArea(h: 2, b: 1);
-        }
+            //Console.WriteLine("\nNEW CASE\n");
 
-        static void MyMethod(MyClass myclass, ref int number)
-        {
-            myclass.value += 5;
-            number += 5;
+            //mylist.Insert(6, 5);
+            //mylist.Insert(7, 6);
 
-            Console.WriteLine("f1: {0} f2:{1}", myclass.value, number);
-        }
+            //mylist.Show();
+            //Console.WriteLine("---------");
+            //mylist.ShowReverse();
 
-        static void MyMethod2(params int[] args)
-        {
-            foreach (var elem in args)
-            {
-                Console.WriteLine(elem);
-            }
+            //Console.WriteLine("\nNEW CASE\n");
+
+            //mylist.Insert("INSERT 3", 3);
+
+            //mylist.Show();
+            //Console.WriteLine("---------");
+            //mylist.ShowReverse();
+
+            //Console.WriteLine("\nNEW CASE\n");
+
+            //mylist.Insert("INSERT 0", 0);
+
+            //mylist.Show();
+            //Console.WriteLine("---------");
+            //mylist.ShowReverse();
+
+            mylist.Insert(111, 0);
+            mylist.Insert(222, 0);
+            mylist.Insert(333, 1);
+
+            mylist.Get(1);
+            mylist.Get(2);
+            mylist.Get(0);
+            mylist.Show();
+            Console.WriteLine("---------");
+            mylist.ShowReverse();
         }
     }
 
-    public class Rectangle
-    {
-        public uint b { get; set; }
-        public uint h { get; set; }
 
-        public Rectangle(uint b, uint h)
-        {
-            this.b = b;
-            this.h = h;
-        }
-
-        public uint GetArea(uint b, uint h)
-        {
-            return b * h;
-        }
-    }
-
-    public class MyClass
-    {
-        public int value = 20;
-    }
 }

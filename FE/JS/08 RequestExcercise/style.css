@@ -1,0 +1,62 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    box-sizing: content-box;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form > * {
+    display: block;
+    margin-top: 25px;
+}
+
+.form input {
+    border: 1px solid rgb(78, 78, 78, 0.5);
+    border-radius: 2px;
+}
+
+.main-input * {
+    display: inline-block;
+}
+
+.main-input .button {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(78, 78, 78, 0.8);
+    cursor: pointer;
+    opacity: 0;
+}
+
+.main-input .accept {
+    background: rgb(99, 247, 144);
+}
+
+.main-input .cancel {
+    background: rgb(247, 99, 99);
+}
+
+.main-input .button:hover {
+    animation: fadein 300ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

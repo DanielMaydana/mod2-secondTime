@@ -50,16 +50,21 @@ namespace AlgorithmsConsole
             //Console.WriteLine("---------");
             //mylist.ShowReverse();
 
-            mylist.Insert(111, 0);
-            mylist.Insert(222, 0);
-            mylist.Insert(333, 1);
+            mylist.Insert((object)11, 0);
+            mylist.Insert((object)22, 0);
+            mylist.Insert((object)33, 1);
 
-            mylist.Get(1);
-            mylist.Get(2);
-            mylist.Get(0);
             mylist.Show();
             Console.WriteLine("---------");
             mylist.ShowReverse();
+
+            //Console.WriteLine(mylist.Get(0));
+            //Console.WriteLine(mylist.Get(1));
+            //Console.WriteLine(mylist.Get(2));
+
+            mylist.Contains(11);
+
+            Console.ReadKey();
         }
     }
 

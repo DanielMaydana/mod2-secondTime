@@ -21,9 +21,9 @@ namespace Algorithms
 
         bool IsEmpty();
 
-        uint IndexOf(object toInsert);
+        int IndexOf(object toInsert);
 
-        void Set(object toInsert, uint pos);
+        void Set(object toSet, uint pos);
 
         uint Size();
     }

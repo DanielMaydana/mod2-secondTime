@@ -7,6 +7,7 @@ namespace Lists
     {
         private uint size;
         private RootElement root;
+        private delegate bool PRED(object obj);
 
         public LinkedList()
         {
@@ -17,7 +18,7 @@ namespace Lists
 
         public void Add(object toAdd)
         {
-            throw new NotImplementedException();
+            this.Insert(toAdd, this.size);
         }
 
         public void Clear()
@@ -25,9 +26,9 @@ namespace Lists
             throw new NotImplementedException();
         }
 
-        public bool Contains(object toAdd)
+        public bool Contains(object toFind)
         {
-            throw new NotImplementedException();
+            return TraverseUntil(toEval => toEval.Equals(toFind));
         }
 
         public void Delete(uint index)
@@ -42,22 +43,40 @@ namespace Lists
 
         public object Get(uint position)
         {
-            ValidatePosition(position);
-            return GoForward(position).Value;
+            this.ValidatePosition(position);
+
+            return GoTo(position).Value;
         }
 
-        private Element GoForward(uint position)
+        private bool TraverseUntil(PRED evaluation)
         {
-            Element toReturn = this.root.First;
-            uint index = 0;
+            Element current = this.root.First;
+            bool eval = false;
 
-            while (toReturn.NextElem != null)
+            while (current != null && !eval)
             {
-                if (index == position) break;
-                else toReturn = toReturn.NextElem;
+                eval = evaluation(current.Value);
+                current = current.NextElem;
             }
 
-            Console.WriteLine("TO RET: {0}", toReturn.Value);
+            return eval;
+        }
+
+        private Element GoTo(uint position)
+        {
+            Element toReturn = this.root.First;
+
+            uint index = 0;
+
+            while (toReturn != null)
+            {
+                if (index == position) return toReturn;
+                else
+                {
+                    index = index + 1;
+                    toReturn = toReturn.NextElem;
+                }
+            }
 
             return toReturn;
         }
@@ -67,14 +86,30 @@ namespace Lists
             throw new NotImplementedException();
         }
 
-        public uint IndexOf(object toInsert)
+        public int IndexOf(object toFind)
         {
-            throw new NotImplementedException();
+            return GetIndexWhere(toEval => toEval.Equals(toFind));
+        }
+
+        private int GetIndexWhere(PRED evaluation)
+        {
+            Element current = this.root.First;
+            bool eval = false;
+            int index = 0;
+
+            while (current != null && !eval)
+            {
+                eval = evaluation(current.Value);
+                current = current.NextElem;
+                index++;
+            }
+
+            return eval ? (index - 1) : -1;
         }
 
         public void Insert(object value, uint position)
         {
-            ValidatePosition(position);
+            this.ValidatePosition(position);
 
             Element elemToInsert = new Element(value);
 
@@ -148,9 +183,13 @@ namespace Lists
             return this.size == 0;
         }
 
-        public void Set(object toInsert, uint position)
+        public void Set(object toSet, uint position)
         {
-            throw new NotImplementedException();
+            this.ValidatePosition(position);
+
+            Element current = this.GoTo(position);
+
+            current.Value = toSet;
         }
 
         public uint Size()

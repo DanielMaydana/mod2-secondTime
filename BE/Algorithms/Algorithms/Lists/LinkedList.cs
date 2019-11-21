@@ -51,10 +51,10 @@ namespace Lists
             Element toReturn = this.root.First;
             uint index = 0;
 
-            while (index <= position && toReturn.NextElem != null)
+            while (toReturn.NextElem != null)
             {
-                toReturn = toReturn.NextElem;
-                index++;
+                if (index == position) break;
+                else toReturn = toReturn.NextElem;
             }
 
             Console.WriteLine("TO RET: {0}", toReturn.Value);

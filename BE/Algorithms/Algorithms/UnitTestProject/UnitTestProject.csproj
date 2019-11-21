@@ -17,6 +17,8 @@
     <ProjectReference Include="..\Iterators\Iterators.csproj" />
     <ProjectReference Include="..\Lists\Lists.csproj" />
     <ProjectReference Include="..\Predicates\Predicates.csproj" />
+    <ProjectReference Include="..\Queues\Queues.csproj" />
+    <ProjectReference Include="..\Stacks\Stacks.csproj" />
   </ItemGroup>
 
 </Project>

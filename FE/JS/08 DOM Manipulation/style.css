@@ -19,6 +19,9 @@ body {
 
 .form > * {
     display: block;
+}
+
+.form > *:nth-child(n + 2) {
     margin-top: 25px;
 }
 
@@ -51,7 +54,7 @@ body {
     background: rgb(247, 99, 99);
 }
 
-.main-input .button:hover {
+.main-input input:focus ~ .button {
     animation: fadein 300ms;
     animation-fill-mode: forwards;
 }

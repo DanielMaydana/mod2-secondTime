@@ -1,8 +1,7 @@
 ﻿using Algorithms;
-using Iterators;
 using Lists;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Predicates;
+using System;
 
 namespace UnitTestProject
 {
@@ -351,6 +350,232 @@ namespace UnitTestProject
             var expected = 222;
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Size_ReturnsZero_WhenDeletedOnlyElement()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)122);
+
+            myLinkedList.Delete(0);
+
+            var actual = myLinkedList.Size();
+
+            var expected = 0U;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsEmpty_ReturnsTrue_WhenDeletedOnlyElement()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)122);
+
+            myLinkedList.Delete(0);
+
+            var actual = myLinkedList.IsEmpty();
+
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void Size_ReturnsUpdatedSize_WhenDeletedLastElement()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)555);
+            myLinkedList.Add((object)888);
+            myLinkedList.Add((object)909);
+
+            myLinkedList.Delete(2);
+
+            var actual = myLinkedList.Size();
+
+            var expected = 2U;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ReturnsUpdatedLastElement_WhenDeletedLastElement()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)555);
+            myLinkedList.Add((object)888);
+            myLinkedList.Add((object)909);
+
+            myLinkedList.Delete(2);
+
+            var actual = myLinkedList.Get(1);
+
+            var expected = 888;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ReturnsUpdatedFirstElement_WhenDeletedFirstElement()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)555);
+            myLinkedList.Add((object)888);
+            myLinkedList.Add((object)909);
+
+            myLinkedList.Delete(0);
+
+            var actual = myLinkedList.Get(0);
+
+            var expected = 888;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ReturnsUpdatedElementAtPosition1_WhenDeletedElementAtPosition1()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)555);
+            myLinkedList.Add((object)888);
+            myLinkedList.Add((object)909);
+
+            myLinkedList.Delete(1);
+
+            var actual = myLinkedList.Get(1);
+
+            var expected = 909;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ReturnsUpdatedElementAtPosition2_WhenDeletedElementAtPosition2()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)515);
+            myLinkedList.Add((object)808);
+            myLinkedList.Add((object)909);
+            myLinkedList.Add((object)121);
+            myLinkedList.Add((object)858);
+
+            myLinkedList.Delete(2);
+
+            var actual = myLinkedList.Get(2);
+
+            var expected = 121;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ReturnsUpdatedElementAtPositionTwo_WhenDeletedAnElementAtTheMiddle()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)515);
+            myLinkedList.Add((object)808);
+            myLinkedList.Add((object)909);
+            myLinkedList.Add((object)121);
+            myLinkedList.Add((object)858);
+
+            myLinkedList.Delete((object)909);
+
+            var actual = myLinkedList.Get(2);
+
+            var expected = 121;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ReturnsUpdatedFirstElement_WhenDeletedAnElementAtTheBeginning()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)515);
+            myLinkedList.Add((object)808);
+            myLinkedList.Add((object)909);
+            myLinkedList.Add((object)121);
+            myLinkedList.Add((object)858);
+
+            myLinkedList.Delete((object)515);
+
+            var actual = myLinkedList.Get(0);
+
+            var expected = 808;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ReturnsUpdatedLastElement_WhenDeletedAnElementAtTheEnd()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add((object)515);
+            myLinkedList.Add((object)808);
+            myLinkedList.Add((object)909);
+            myLinkedList.Add((object)121);
+            myLinkedList.Add((object)858);
+
+            myLinkedList.Delete((object)858);
+
+            var actual = myLinkedList.Get(3);
+
+            var expected = 121;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Size_ReturnsCero_WhenListIsCleared()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add(111);
+
+            myLinkedList.Clear();
+
+            var actual = myLinkedList.Size();
+
+            var expected = 0U;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Get_ThrowsException_WhenListIsCleared()
+        {
+            IList myLinkedList = new LinkedList();
+
+            myLinkedList.Add(111);
+
+            myLinkedList.Clear();
+
+            var actual = Assert.ThrowsException<NullReferenceException>(() => myLinkedList.Get(0));
+
+            var expected = "Object reference not set to an instance of an object.";
+
+            Assert.AreEqual(expected, actual.Message);
+        }
+
+        [TestMethod]
+        public void Get_ThrowsException_WhenAPositionIsNonExistent()
+        {
+            IList myLinkedList = new LinkedList();
+
+            var actual = Assert.ThrowsException<ArgumentException>(() => myLinkedList.Get(3));
+
+            var expected = "Position is not valid.";
+
+            Assert.AreEqual(expected, actual.Message);
         }
     }
 }

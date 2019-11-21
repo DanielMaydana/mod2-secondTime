@@ -23,7 +23,10 @@ namespace Lists
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            while (this.size != 0)
+            {
+                this.Delete(0);
+            }
         }
 
         public bool Contains(object toFind)
@@ -31,21 +34,67 @@ namespace Lists
             return TraverseUntil(toEval => toEval.Equals(toFind));
         }
 
-        public void Delete(uint index)
+        public void Delete(uint position)
         {
-            throw new NotImplementedException();
+            this.ValidatePosition(position);
+
+            Element elemToDel = this.GetElementFrom(position);
+
+            if (this.size == 1 && position == 0)
+            {
+                this.root.First = this.root.Last = null;
+                SetElementToNull(elemToDel);
+            }
+            else if ((this.size - 1) == position && this.size > 1)
+            {
+                this.root.Last = elemToDel.PrevElem;
+                elemToDel.PrevElem.NextElem = null;
+                SetElementToNull(elemToDel);
+            }
+            else if (this.size > 0 && position == 0)
+            {
+                this.root.First = elemToDel.NextElem;
+                elemToDel.NextElem.PrevElem = null;
+                SetElementToNull(elemToDel);
+            }
+            else if (this.size > position && position > 0)
+            {
+                Element prior = elemToDel.PrevElem;
+                Element later = elemToDel.NextElem;
+
+                prior.NextElem = later;
+                later.PrevElem = prior;
+
+                SetElementToNull(elemToDel);
+            }
+
+            this.size--;
         }
 
         public void Delete(object toDel)
         {
-            throw new NotImplementedException();
+            int position = IndexOf(toDel);
+
+            if (position > -1)
+            {
+                this.Delete((uint)position);
+            }
+            else
+            {
+                throw new ArgumentException("Object not found in Linked List.");
+            }
+        }
+
+        private void SetElementToNull(Element toDelete)
+        {
+            toDelete.PrevElem = toDelete.NextElem = null;
         }
 
         public object Get(uint position)
         {
             this.ValidatePosition(position);
 
-            return GoTo(position).Value;
+            return GetElementFrom(position).Value;
         }
 
         private bool TraverseUntil(PRED evaluation)
@@ -62,7 +111,7 @@ namespace Lists
             return eval;
         }
 
-        private Element GoTo(uint position)
+        private Element GetElementFrom(uint position)
         {
             Element toReturn = this.root.First;
 
@@ -117,19 +166,19 @@ namespace Lists
             {
                 this.root.First = this.root.Last = elemToInsert;
             }
-            if (this.size == position && this.size > 0)
+            else if (this.size == position && this.size > 0)
             {
                 elemToInsert.PrevElem = this.root.Last;
                 this.root.Last.NextElem = elemToInsert;
                 this.root.Last = elemToInsert;
             }
-            if (this.size > 0 && position == 0)
+            else if (this.size > 0 && position == 0)
             {
                 elemToInsert.NextElem = this.root.First;
                 this.root.First.PrevElem = elemToInsert;
                 this.root.First = elemToInsert;
             }
-            if (this.size > position && position > 0)
+            else if (this.size > position && position > 0)
             {
                 Element later = this.root.First;
                 uint index = 0;
@@ -175,7 +224,7 @@ namespace Lists
 
         private void ValidatePosition(uint position)
         {
-            if (position > this.size) throw new IndexOutOfRangeException();
+            if (position > this.size) throw new ArgumentException("Position is not valid.");
         }
 
         public bool IsEmpty()
@@ -187,7 +236,7 @@ namespace Lists
         {
             this.ValidatePosition(position);
 
-            Element current = this.GoTo(position);
+            Element current = this.GetElementFrom(position);
 
             current.Value = toSet;
         }

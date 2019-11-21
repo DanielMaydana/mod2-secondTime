@@ -9,11 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iterators", "Iterators\Iter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{88654C1A-7C55-480D-A31C-48620A6BD84C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Predicates", "Predicates\Predicates.csproj", "{5265CEB1-4926-4E53-8EAD-B7BBD08B9063}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Predicates", "Predicates\Predicates.csproj", "{5265CEB1-4926-4E53-8EAD-B7BBD08B9063}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsConsole", "AlgorithmsConsole\AlgorithmsConsole.csproj", "{AC3A0D26-8448-46B5-9625-C3F211B42858}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgorithmsConsole", "AlgorithmsConsole\AlgorithmsConsole.csproj", "{AC3A0D26-8448-46B5-9625-C3F211B42858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "Lists\Lists.csproj", "{836FA8EC-3D96-4156-9779-1F2F69380ABD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lists", "Lists\Lists.csproj", "{836FA8EC-3D96-4156-9779-1F2F69380ABD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues", "Queues\Queues.csproj", "{AA47E68D-1625-4F28-AD74-3C2F60828E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stacks", "Stacks\Stacks.csproj", "{C57BEEC2-1752-4C11-AA6D-663304D4EC63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{836FA8EC-3D96-4156-9779-1F2F69380ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{836FA8EC-3D96-4156-9779-1F2F69380ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{836FA8EC-3D96-4156-9779-1F2F69380ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA47E68D-1625-4F28-AD74-3C2F60828E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA47E68D-1625-4F28-AD74-3C2F60828E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA47E68D-1625-4F28-AD74-3C2F60828E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA47E68D-1625-4F28-AD74-3C2F60828E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57BEEC2-1752-4C11-AA6D-663304D4EC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57BEEC2-1752-4C11-AA6D-663304D4EC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57BEEC2-1752-4C11-AA6D-663304D4EC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57BEEC2-1752-4C11-AA6D-663304D4EC63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

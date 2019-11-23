@@ -1,4 +1,5 @@
 ﻿using Algorithms;
+using Iterators;
 using System;
 
 namespace Lists
@@ -132,7 +133,7 @@ namespace Lists
 
         public IIterator GetIterator()
         {
-            throw new NotImplementedException();
+            return new ListIterator(this);
         }
 
         public int IndexOf(object toFind)

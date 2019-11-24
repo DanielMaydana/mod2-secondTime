@@ -1,0 +1,111 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    --grey00: #f1f1f1;
+    --grey0: #d4d4d4;
+    --grey1: #d8d8d8;
+    --grey2: #cecece;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add.button {
+    margin-bottom: 15px;
+}
+
+.list {
+    height: 550px;
+    min-width: 350px;
+    background: var(--grey1);
+    overflow-y: overlay;
+    overflow-x: overlay;
+}
+
+.list .task + .task {
+    margin-top: 15px;
+}
+
+.task {
+    height: 100px;
+    width: 350px;
+    background: var(--grey00);
+    user-select: none;
+    cursor: pointer;
+}
+
+.task > * {
+    float: left;
+}
+
+.avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-right: 16px;
+}
+
+.data {
+    height: 100%;
+    width: 290px;
+    display: float;
+    padding: 10px;
+}
+
+.data > * {
+    display: block;
+}
+
+.data > * + * {
+    margin-top: 10px;
+}
+
+.button {
+    height: 25px;
+    width: 75px;
+    border: 1px solid var(--grey0);
+    border-radius: 12px;
+    line-height: 25px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.pop-up {
+    height: 200px;
+    width: 400px;
+    opacity: 1;
+    background: #ffffff;
+    border: 1px solid var(--grey1);
+    border-radius: 10px;
+    padding: 35px;
+    display: none;
+    position: absolute;
+}
+
+.pop-up .text-area {
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px
+}
+
+.pop-up > .button {
+    float: right;
+    margin-left: 20px;
+    margin-top: 15px;
+}

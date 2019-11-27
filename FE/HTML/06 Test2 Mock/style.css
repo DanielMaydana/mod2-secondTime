@@ -1,0 +1,145 @@
+html, body {
+    width: 100%;
+    height: 100%;
+
+    --grey00: rgb(255, 255, 255);
+    --grey0: rgb(245, 245, 245);
+    --grey1: rgb(235, 235, 235);
+    --grey2: rgb(225, 225, 225);
+    --grey3: rgb(210, 210, 210);
+
+    --purple00: rgb(253, 245, 255);
+    --purple0: rgb(236, 215, 240);
+    --purple1: rgb(182, 159, 185);
+    --purple2: rgb(133, 45, 146);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+.toolbar {
+    width: 100%;
+    height: 60px;
+    background: var(--grey0);
+    line-height: 60px;
+    padding-left: 25px;
+    color: var(--purple2);
+    border-bottom: 2px solid var(--grey3);
+    font-weight: 600;
+}
+
+.sidenavbar {
+    height: calc(100% - 60px);
+    width: 220px;
+    background: var(--grey1);
+    float: left;
+}
+
+.option {
+    height: 70px;
+    line-height: 70px;
+    padding-left: 25px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.option:hover {
+    background: var(--purple00);
+}
+
+.option.selected {
+    color: var(--purple2);
+    background: var(--purple0);
+}
+
+.container {
+    height: calc(100% - 60px);
+    width: calc(100% - 220px);
+    background: var(--grey00);
+    overflow-y: overlay;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.card {
+    height: 110px;
+    width: 310px;
+    border-radius: 5px;
+    border: 2px solid var(--grey1);
+    padding-top: 15px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+}
+
+.data {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    background: var(--purple2);
+    color: var(--grey00);
+    margin-left: 15px;
+    margin-right: 15px;
+    float: left;
+}
+
+.name {
+    font-weight: 600;
+    float: left;
+    margin-top: 5px;
+}
+
+.mail {
+    float: left;
+    font-size: 12px;
+    margin-top: 20px;
+    color: var(--grey3);
+    word-wrap: normal;
+}
+
+.reactions {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    /* visibility: hidden; */
+    transition: opacity 300ms;
+    opacity: 0.0;
+}
+
+.emoji{
+    font-size:  18px;
+    display: inline-block;
+}
+
+.reactions .emoji + .emoji {
+    margin-left: 25px;
+}
+
+.reactions .emoji:first-child {
+    margin-left: 26px;
+}
+
+.card:hover .reactions {
+    /* visibility: visible; */
+    opacity: 1;
+}
+
+.card:hover {
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
+}

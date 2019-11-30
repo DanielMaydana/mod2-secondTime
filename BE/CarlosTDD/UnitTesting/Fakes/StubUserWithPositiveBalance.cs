@@ -2,7 +2,7 @@
 using CarlosTDD.Implementations;
 using System.Collections.Generic;
 
-namespace UnitTesting.Mocks
+namespace Testing.Fakes
 {
     public class StubUserWithPositiveBalance : UserAccount
     {

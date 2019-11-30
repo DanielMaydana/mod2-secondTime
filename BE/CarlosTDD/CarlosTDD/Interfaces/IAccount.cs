@@ -8,8 +8,6 @@ namespace CarlosTDD.Interfaces
     {
         double GetBalance();
 
-        double Credit(double ammount);
-
-        double Debit(double ammount);
+        double UpdateBalance(double ammount);
     }
 }

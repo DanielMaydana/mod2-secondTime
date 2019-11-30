@@ -1,0 +1,114 @@
+HTML, body  {
+    height: 100vh;
+    width: 100vw;
+    --grey0: rgb(233, 233, 233);
+    --grey1: rgb(201, 201, 201);
+    --grey2: rgb(170, 170, 170);
+    --grey3: rgb(124, 124, 124);
+
+    --default-border: 1px solid var(--grey3);
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 64px;
+    width: 100%;
+    background: var(--grey1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 0 25px;
+}
+
+.header .option {
+    width: 100px;
+    text-align: center;
+}
+
+.header .option-group {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-group .app-options {
+    display: flex;
+    justify-content: center;
+}
+
+.app-options > .option + .option {
+    border-left: var(--default-border);
+}
+
+.header .user-info {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+    border: var(--default-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey1);
+}
+
+.main-content {
+    height: calc(100% - 64px);
+    background: var(--grey0);
+    display: flex;
+}
+
+.main-content .navbar {
+    width: 220px;
+    height: 100%;
+    background-attachment: fixed;
+    background: var(--grey2);
+}
+
+.navbar .option {
+    width: 100%;
+    height: 48px;
+    padding: 0 25px 0 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .members > .avatar + .avatar {
+    margin-left: -10px;
+}
+
+.navbar > .option + .option {
+    border-top: var(--default-border);
+}
+
+.navbar > .option > .members {
+    display: flex;
+}
+
+.team-list {
+    width: 320px;
+}
+
+.team-list .list {
+    display: flex;
+    flex-direction: column;
+    border: var(--default-border);
+}
+
+.team-list .list > .list-entry + .list-entry {
+    border-top: var(--default-border);
+}

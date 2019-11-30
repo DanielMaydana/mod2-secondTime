@@ -14,19 +14,22 @@ namespace CarlosTDD.Implementations
             this.Id = id;
         }
 
-        public double Credit(double ammount)
+        public double UpdateBalance(double ammount)
         {
+            this.ValidateAmmount(ammount);
             return this.balance += Math.Round(ammount, 2);
-        }
-
-        public double Debit(double ammount)
-        {
-            throw new System.NotImplementedException();
         }
 
         public double GetBalance()
         {
             return this.balance;
+        }
+
+        private bool ValidateAmmount(double ammount)
+        {
+            if (this.balance + ammount < 0) throw new ArgumentException("111");
+
+            return true;
         }
     }
 }

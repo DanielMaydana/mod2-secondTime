@@ -22,6 +22,7 @@ html, body {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     user-select: none;
+    z-index: 0;
 }
 
 #background {
@@ -89,6 +90,10 @@ html, body {
     background: var(--grey00);
     overflow-y: overlay;
     box-sizing: content-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 a {
@@ -107,6 +112,13 @@ a {
     padding: 15px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    background: var(--grey00);
+}
+
+.card .subject-list {
+    width: 100%;
+    display: none;
 }
 
 .info {
@@ -179,40 +191,47 @@ a {
     box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
 }
 
-.card .subject-list {
-    width: 100%;
-}
-
 .subject-list h5 {
     margin-bottom: 5px;
 }
 
 .background {
-    height: 100%;
     width: 100%;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-    background: var(--black00);
-    position: absolute;
-    opacity: 0.5;
-    z-index: 1000;
     display: none;
+    z-index: 100;
 }
 
 .card-link:target::after {
     content: '';
-    height: 100%;
+    background-color: black;
     width: 100%;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-    background: var(--black00);
-    position: absolute;
-    opacity: 0.5;
-    z-index: 1000;
+    margin: 0;
+    border-radius: 0;
+    opacity: 0.8;
+    z-index: 100;
 }
 
 .card-link:target .card {
-    z-index: 2000;
+    z-index: 200;
+    height: 200px;
+    box-shadow: none;
     transition: all ease 0.4s;
 }
 
+.card-link:target .card .subject-list {
+    display: block;
+}
+
+a:target + a {
+    display: block;
+    transition: all ease 1s;
+  }
+  

@@ -2,14 +2,14 @@
 using CarlosTDD.Implementations;
 using System.Collections.Generic;
 
-namespace UnitTesting.Mocks
+namespace Testing.Fakes
 {
-    public class MockBankWithTax : Bank
+    public class MockBankWithOnlyUser : Bank
     {
-        public MockBankWithTax()
+        public MockBankWithOnlyUser()
         {
             this.allUsers = new List<IAccount> { new UserAccount(111) };
-            this.tax = 0.1F;
         }
+
     }
 }

@@ -10,17 +10,22 @@ namespace CarlosAPI
         public string Title { get; set; }
         public string Author { get; set; }
         public uint Isbn { get; set; }
-        public Point Point { get; set; }
+        public Point myPoint { get; set; }
 
         public Book()
         {
-            this.Point = new Point();
         }
     }
 
     public class Point
     {
-        public const uint X = 10;
-        public const uint y = 88;
+        public uint x;
+        public uint y;
+
+        public Point(uint x, uint y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

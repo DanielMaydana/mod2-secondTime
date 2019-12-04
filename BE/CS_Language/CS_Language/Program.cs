@@ -65,113 +65,74 @@ namespace CS_Language
 
             //-------------------------------------
 
-            //var dzn = new Dozen();
-            var fizz = new Fizz();
-            var buzz = new Buzz();
-            var person = new Person();
-            var shaz = new Shazam();
+            //var game = new Game();
+            //var player = new Player(game);
 
-            Increment.DoCount();
+            //game.DoCount();
+
         }
 
-
-        public static class Increment // PUBLISHER
+        public class Game
         {
-            //public delegate void EventHandler(int n); // 1 delegate
-            //public static event EventHandler CountDozen; // 3 event declaration
+            public event EventHandler SayThree;
+            public event EventHandler SayFive;
+            public event EventHandler SaySeven;
+            public event EventHandler SayNumber;
+            private int counter;
 
-            public delegate void WordEventHandler();
-            public delegate void NumberEventHandler(int n);
-            public static event WordEventHandler SayWordThree;
-            public static event WordEventHandler SayWordFive;
-            public static event NumberEventHandler SayNumber;
-
-            //delegate void HandlerSpecial(object source, EventArgs args);
-            public static event EventHandler SayWord7;
-
-            public static void DoCount()
+            public Game()
             {
-                int count = 0;
+                this.counter = 0;
+            }
 
-                for (int i = 0; i < 100; i++)
+            public void DoCount()
+            {
+                for (int i = 1; i <= 100; i++)
                 {
-                    count++;
+                    this.counter++;
 
-                    //if (CountDozen != null)
-                    //{
-                    if (count % 3 == 0) SayWordThree();
-                    else if (count % 5 == 0) SayWordFive();
-                    else if (count % 7 == 0) SayWord7(null, null);
-                    else SayNumber(count);
-                    //}
-
-                    //if (CountDozen != null) CountDozen(count); // 5 rise the event 
+                    if (this.counter % 3 == 0) SayThree(this, null);
+                    else if (this.counter % 5 == 0) SayFive(this, null);
+                    else if (this.counter % 7 == 0) SaySeven(this, null);
+                    else SayNumber(this, null);
                 }
             }
-        }
 
-        public class Dozen // SUBSCRIBER
-        {
-            //public Dozen()
-            //{
-            //    Increment.CountDozen += IncrementCount; // 4 subscribe to event
-            //}
-
-            //public void IncrementCount(int n) // 2 handler
-            //{
-            //    Console.WriteLine("Dozen reached");
-            //}
-        }
-
-        public class Person
-        {
-            public Person()
+            public int GetCounter()
             {
-                Increment.SayNumber += SayNumber;
-            }
-
-            public void SayNumber(int n) // 2 handler
-            {
-                Console.WriteLine(n);
+                return this.counter;
             }
         }
 
-        public class Fizz
+        public class Player
         {
-            public Fizz()
+            public Player(Game Game)
             {
-                Increment.SayWordThree += SayFizz;
+                Game.SayThree += SayFizz;
+                Game.SayFive += SayBuzz;
+                Game.SaySeven += SayShazam;
+                Game.SayNumber += SayNumber;
             }
 
-            public void SayFizz()
+            void SayFizz(object source, EventArgs args)
             {
                 Console.WriteLine("Fizz");
             }
-        }
 
-        public class Buzz
-        {
-            public Buzz()
-            {
-                Increment.SayWordFive += SayBuzz;
-            }
-
-            public void SayBuzz()
+            void SayBuzz(object source, EventArgs args)
             {
                 Console.WriteLine("Buzz");
             }
-        }
 
-        public class Shazam
-        {
-            public Shazam()
-            {
-                Increment.SayWord7 += SayShazam;
-            }
-
-            private void SayShazam(object source, EventArgs args)
+            void SayShazam(object source, EventArgs args)
             {
                 Console.WriteLine("Shazam");
+            }
+
+            void SayNumber(object source, EventArgs args)
+            {
+                var number = ((Game)source).GetCounter();
+                Console.WriteLine(number);
             }
         }
     }

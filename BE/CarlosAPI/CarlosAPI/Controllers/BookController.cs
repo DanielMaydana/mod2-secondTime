@@ -16,7 +16,7 @@ namespace CarlosAPI.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             //var aux = new string[] { "value1book", "value2book" };
-            var aux = new Book { Author = "Oscar Wilde", Title = "Lost Girls", Isbn = 1414 };
+            var aux = new Book { Author = "Oscar Wilde", Title = "Lost Girls", Isbn = 1414, myPoint = new Point(1, 2) };
             return Ok(aux);
         }
 

@@ -8,12 +8,12 @@ using UnitTestProject.Mocks;
 namespace UnitTestProject
 {
     [TestClass]
-    public class LIFOStackTesting
+    public class GenericLIFOStackTesting
     {
         [TestMethod]
         public void Size_ReturnsCero_WhenInstantiatedWithEmptyLinkedList()
         {
-            IStack myStack = new LIFOStack(new LinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
 
             var actual = myStack.Size();
 
@@ -23,9 +23,14 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void Size_ReturnsCero_WhenInstantiatedWithFakeLinkedList()
+        public void Size_ReturnsCero_WhenInstantiatedWithGenericLinkedList()
         {
-            IStack myStack = new LIFOStack(new FakeLinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
+            myStack.Push("111");
+            myStack.Push("222");
+            myStack.Push("333");
+            myStack.Push("444");
+            myStack.Push("555");
 
             var actual = myStack.Size();
 
@@ -37,7 +42,7 @@ namespace UnitTestProject
         [TestMethod]
         public void IsEmpty_ReturnsTrue_WhenInstantiatedWithEmptyLinkedList()
         {
-            IStack myStack = new LIFOStack(new LinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
 
             var actual = myStack.IsEmpty();
 
@@ -45,9 +50,14 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void IsEmpty_ReturnsFalse_WhenInstantiatedWithFakeLinkedList()
+        public void IsEmpty_ReturnsFalse_WhenInstantiatedWithGenericLinkedList()
         {
-            IStack myStack = new LIFOStack(new FakeLinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
+            myStack.Push("111");
+            myStack.Push("222");
+            myStack.Push("333");
+            myStack.Push("444");
+            myStack.Push("555");
 
             var actual = myStack.IsEmpty();
 
@@ -55,13 +65,17 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void Peek_ReturnsLastElementPushed_WhenInstantiatedWithFakeLinkedList()
+        public void Peek_ReturnsLastElementPushed_WhenInstantiatedWithGenericLinkedList()
         {
-            IStack myStack = new LIFOStack(new FakeLinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
+            myStack.Push("111");
+            myStack.Push("222");
+            myStack.Push("333");
+            myStack.Push("444");
+            myStack.Push("555");
 
+            var expected = "555";
             var actual = myStack.Peek();
-
-            var expected = 555;
 
             Assert.AreEqual(expected, actual);
         }
@@ -69,11 +83,15 @@ namespace UnitTestProject
         [TestMethod]
         public void Pop_ReturnsLastElementPushed_WhenPopCalledOnce()
         {
-            IStack myStack = new LIFOStack(new FakeLinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
+            myStack.Push("111");
+            myStack.Push("222");
+            myStack.Push("333");
+            myStack.Push("444");
+            myStack.Push("555");
 
+            var expected = "555";
             var actual = myStack.Pop();
-
-            var expected = 555;
 
             Assert.AreEqual(expected, actual);
         }
@@ -81,27 +99,32 @@ namespace UnitTestProject
         [TestMethod]
         public void Peek_ReturnsPenultimateElementPushed_AfterPopCalledOnce()
         {
-            IStack myStack = new LIFOStack(new FakeLinkedList());
-
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
+            myStack.Push("111");
+            myStack.Push("222");
+            myStack.Push("333");
+            myStack.Push("444");
+            myStack.Push("555");
             myStack.Pop();
 
+            var expected = "444";
             var actual = myStack.Peek();
-
-            var expected = 444;
 
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void Peek_ReturnsLastElementPushed_AfterCallingPushOnceUsingAFakeLinkedList()
+        public void Peek_ReturnsLastElementPushed_AfterCallingPushOnceUsingAGenericLinkedList()
         {
-            IStack myStack = new LIFOStack(new FakeLinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
+            myStack.Push("111");
+            myStack.Push("222");
+            myStack.Push("333");
+            myStack.Push("444");
+            myStack.Push("676");
 
-            myStack.Push(676);
-
+            var expected = "676";
             var actual = myStack.Peek();
-
-            var expected = 676;
 
             Assert.AreEqual(expected, actual);
         }
@@ -109,13 +132,11 @@ namespace UnitTestProject
         [TestMethod]
         public void Peek_ReturnsElementPushed_AfterCallingPushOnceUsingAnEmptyLinkedList()
         {
-            IStack myStack = new LIFOStack(new LinkedList());
+            IGenericStack<string> myStack = new GenericLIFOStack<string>(new GenericLinkedList<string>());
+            myStack.Push("171");
 
-            myStack.Push(171);
-
+            var expected = "171";
             var actual = myStack.Peek();
-
-            var expected = 171;
 
             Assert.AreEqual(expected, actual);
         }

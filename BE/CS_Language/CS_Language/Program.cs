@@ -70,6 +70,89 @@ namespace CS_Language
 
             //game.DoCount();
 
+            //-------------------------------------
+
+            //Animal a1 = new Animal();
+            //Animal a2 = new Dog();
+
+            //Console.WriteLine(a1.numberOfLegs);
+            //Console.WriteLine(a2.numberOfLegs);
+
+            //Factory<Dog> dogMaker = MakeDog;
+            //Factory<Animal> animalMaker = dogMaker;
+
+            //Console.WriteLine(animalMaker().numberOfLegs.ToString());
+
+
+            //-------------------------------------
+
+            //Action1<Animal> act1 = ActAnimal;
+            //Action1<Dog> dog1 = act1;
+
+            //dog1(new Dog());
+
+            //-------------------------------------
+
+            //IContravariant<object> myContrObj = new Sample<object>();
+            //IContravariant<string> myContrStr = new Sample<string>();
+
+            //myContrStr = myContrObj;
+
+            //-------------------------------------
+
+            //DContravariant<object> delObj = SampleObj;
+            //DContravariant<string> delStr = SampleString;
+
+            //delStr = delObj;
+
+            //-------------------------------------
+
+            Factory<Animal> animal = MakeDog;
+            Factory<Dog> dog = MakeDog;
+
+            animal = dog;
+
+            Action1<object> objAct1 = SampleObj;
+            Action1<string> strAct2 = SampleString;
+
+            strAct2 = objAct1;
+        }
+        delegate T Factory<out T>();
+        delegate void Action1<in T>(T arg);
+
+        public delegate R DCovariant<out R>();
+
+        public delegate void DContravariant<in A>(A argument);
+        public static void SampleObj(object obj) { }
+        public static void SampleInt(int number) { }
+        public static void SampleString(string str) { }
+
+        public interface IContravariant<in A> { }
+        public interface IExtContravariant<in A> : IContravariant<A> { }
+        public class Sample<A> : IContravariant<A> { }
+
+
+        public static void ActAnimal(Animal a)
+        {
+            Console.WriteLine(a.numberOfLegs);
+        }
+
+        public class Animal
+        {
+            public int numberOfLegs = 6;
+        }
+
+        public class Dog : Animal
+        {
+            public Dog()
+            {
+                this.numberOfLegs = 4;
+            }
+        }
+
+        public static Dog MakeDog()
+        {
+            return new Dog();
         }
 
         public class Game

@@ -1,0 +1,77 @@
+As a user I want to be able to register myself in the system
+
+The main view for signing up must have a text input and a button.
+
+The button should be enabled only after I entered my nickname.
+The text input validation must check: 
+- The nickname contains letters and numbers only
+- The nickname contains more than or equal to 15 characters
+- The nickname contains less than or equal to 50 characters
+- The nickname doesn't contain white spaces
+If any of these criteria doesn't check the text input should be red colored, an explanatory message displayed below the input and the button should still be disabled.
+
+After I have pressed the button the text input should be cleaned and a response message should be displayed.
+
+In the case of a successfull response and the message displayed should have a green tone. Then I should be redirected to the logging in page. 
+
+Otherwise the message should show the cause of the error and the tone should be red.
+
+
+
+As a user I want to be able to use the system using my nickname
+
+The main view for logging in should have a text input and a button.
+
+The button should be enabled only after I entered a nickname.
+
+The text input validation must check: 
+- The nickname contains letters and numbers only
+- The nickname contains more than or equal to 15 characters
+- The nickname contains less than or equal to 50 characters
+- The nickname doesn't contain white spaces
+If any of these criteria doesn't check the text input should be red colored, an explanatory message displayed below the input and the button should still be disabled.
+
+After I have pressed the button the text input should be cleaned and a response message should be displayed.
+
+In the case of a successfull response and the message displayed should have a green tone. Then I should be redirected to the catalog page.
+
+Otherwise the message should show the cause of the error and the tone should be red.
+
+
+
+As a user I want to see the latest movies registered in the last 4 weeks
+
+The catalog view should have a header with the name and avatar of the user.
+
+The catalog should have a vertical grid layout. There should be as much as 4 sections, one for each week. If a week doesn't contain registered movies, then it won't be displayed.
+
+Each movie displayed should have a tittle and a picture. All 
+
+
+
+As a user I want to order a movie
+
+When I click on a movie from the catalog, it should display a modal window containing the movie's tittle, image and a link (for its description).
+
+In the botttom of the modal, there should be a button with the label "Add to cart".
+
+When clicked on the button there should appear another window with the options to cancel and confirm the order. If the order is canceled, the both windows should close. 
+
+If the order is confirmed, the last window should close and a successful message should be displayed stating the status of the roder.
+
+
+
+As a user I want to see my orders
+
+When I click on my avatar or name (located on the header of the catalog), the page should display the movies I ordered.
+
+The order history should have a vertical list layout. Each item of the list should contain the name of the movie and the date of the order.
+
+
+
+
+As an administrator I want to register movies in the system
+
+
+
+As an administrator I want to see the quantity of orders per movie

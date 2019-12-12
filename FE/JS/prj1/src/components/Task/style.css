@@ -1,0 +1,22 @@
+.taskCmpt {
+    width: 100%;
+    background-color: var(--blue3);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.taskCmpt > * + * {
+    margin-top: 8px;
+}
+
+.taskCmpt .buttons {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+

@@ -1,32 +1,47 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
-export default function TodoForm(props) {
+export default function TodoForm({ onCancel, onSave, value }) {
 
   const [text, setText] = useState('');
-  const [disabledSaveBtn, setDisabledSaveBtn] = useState(false);
-  const { onCancel, onSave } = props;
 
+  useEffect(() => setText(value), []);
 
   function handleChange(event) {
     const value = event.target.value;
     setText(value);
-
-    if (value == '') console.log("empty")/* setDisabledSaveBtn(true); */
-    else console.log("not empty") /* setDisabledSaveBtn(false); */
   }
 
   function handleSave(event) {
-    onSave({ name: text })
+    if (!text) return;
+    onSave({ name: text });
+    setText('')
+  }
+
+  function handleKeyDown(event) {
+    const ENTER_KEY = 13;
+    if (event.keyCode == ENTER_KEY) {
+      handleSave();
+    }
   }
 
   return (
     <section className="todoFormCmpt">
-      <input type="text" onChange={handleChange} placeholder="write a task"></input>
+      <input type="text" onChange={handleChange} placeholder="write a task" value={text} onKeyDown={handleKeyDown} />
       <div className="actions">
-        {/* <input type="button" enabled={false} onClick={handleSave} value="SAVE"></input> */}
-        <button type="button" enabled={false} onClick={handleSave}>SAVE</button>
+        <button disabled={!text} onClick={handleSave}>SAVE</button>
         <input type="button" onClick={onCancel} value="CANCEL"></input>
       </div>
     </section>
   )
+}
+
+TodoForm.propTypes = {
+  onCancel: PropTypes.func,
+  onSave: PropTypes.func,
+}
+
+TodoForm.defaultProps = {
+  onCancel: function () { },
+  onSave: function () { }
 }

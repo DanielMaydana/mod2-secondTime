@@ -1,0 +1,18 @@
+.timerCmpt { 
+    width: 120px;
+}
+
+.timerCmpt .timer {
+    height: 35px;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.timerCmpt .controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

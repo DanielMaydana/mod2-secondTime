@@ -9,9 +9,3 @@
     --grey1: rgb(197, 197, 197);
     --grey4: rgb(136, 136, 136);
 }
-
-.App {
-    height: 100%;
-    width: 100%;
-    background-color: whitesmoke;
-}

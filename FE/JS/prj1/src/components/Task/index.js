@@ -23,6 +23,8 @@ function Task({ name, onDelete, onEdit }) {
     setShowForm(true);
   }
 
+  console.log(name, 'task name');
+
   return (
     <section className="taskCmpt">
       {!showForm &&

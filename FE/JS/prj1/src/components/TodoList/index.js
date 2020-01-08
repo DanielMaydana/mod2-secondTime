@@ -1,12 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import './style.css'
+import React, { useEffect, useState, useContext } from 'react'
 import TodoForm from '../TodoForm'
 import List from '../List'
-import './style.css'
+import GlobalContext from '../../context/global';
 
 export default function TodoList() {
 
+  const [state, dispatch, actions] = useContext(GlobalContext);
+  const { tasks } = state;
   const [showForm, setShowForm] = useState(false);
-  const [tasks, setTasks] = useState([]);
+
+  function handleSave(task) {
+    dispatch(actions.CREATE(task));
+  }
+
+  function handleDelete(name) {
+    dispatch(actions.DELETE(name));
+  }
+
+  function handleEdit(name, task) {
+    dispatch(actions.UPDATE({ name, task }))
+  }
 
   function handleAdd() {
     setShowForm(true);
@@ -14,27 +28,6 @@ export default function TodoList() {
 
   function handleCancel() {
     setShowForm(false);
-  }
-
-  function handleDelete(name) {
-    const updatedTasks = [...tasks];
-    const index = updatedTasks.findIndex(task => task.name == name);
-    updatedTasks.splice(index, 1);
-    setTasks(updatedTasks);
-
-  }
-
-  function handleSave(task) {
-    const updatedTasks = [...tasks, { ...task }];
-    setTasks(updatedTasks);
-  }
-
-  function handleEdit(name, task) {
-
-    const updatedTasks = [...tasks];
-    const taskToEdit = updatedTasks.find(single => single.name == name);
-    taskToEdit.name = task.name;
-    setTasks(updatedTasks);
   }
 
   return (

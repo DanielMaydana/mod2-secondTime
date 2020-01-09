@@ -6,9 +6,9 @@ import GlobalContext from '../../context/global';
 
 export default function TodoList() {
 
+  const [showForm, setShowForm] = useState(false);
   const [state, dispatch, actions] = useContext(GlobalContext);
   const { tasks } = state;
-  const [showForm, setShowForm] = useState(false);
 
   function handleSave(task) {
     dispatch(actions.CREATE(task));

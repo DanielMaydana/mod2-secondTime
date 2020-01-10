@@ -3,28 +3,20 @@ import TodoForm from '../TodoForm';
 import './style.css'
 
 function Task({ name, onDelete, onEdit }) {
-
   const [showForm, setShowForm] = React.useState(false);
-
   function handleDelete() {
     onDelete(name);
   }
-
   function handleCancel() {
     setShowForm(false)
   }
-
   function handleSave(task) {
     onEdit(name, task);
     setShowForm(false)
   }
-
   function handleClickEdit() {
     setShowForm(true);
   }
-
-  console.log(name, 'task name');
-
   return (
     <section className="taskCmpt">
       {!showForm &&

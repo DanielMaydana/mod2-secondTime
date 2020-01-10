@@ -1,21 +1,24 @@
+export const actionTypes = {
+  UPDATE: 'UPDATE',
+  CREATE: 'CREATE',
+  DELETE: 'DELETE'
+}
 export default {
   UPDATE: (properties) => {
     return {
-      type: 'UPDATE',
+      type: actionTypes.UPDATE,
       payload: properties
     }
   },
-
   CREATE: (task) => {
     return {
-      type: 'CREATE',
+      type: actionTypes.CREATE,
       payload: task
     }
   },
-
   DELETE: (id) => {
     return {
-      type: 'DELETE',
+      type: actionTypes.DELETE,
       payload: id
     }
   }

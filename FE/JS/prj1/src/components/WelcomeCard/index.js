@@ -18,8 +18,6 @@ export default function WelcomeCard() {
     setCounter(counter + 1)
   }
 
-  // useRequest
-
   return (
     <div className="welcomeCard" onClick={clickHandler}>Clicked that many times: {counter}</div>
   )

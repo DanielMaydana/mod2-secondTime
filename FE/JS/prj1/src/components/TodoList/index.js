@@ -3,33 +3,25 @@ import React, { useEffect, useState, useContext } from 'react'
 import TodoForm from '../TodoForm'
 import List from '../List'
 import GlobalContext from '../../context/global';
-
 export default function TodoList() {
-
   const [showForm, setShowForm] = useState(false);
   const [state, dispatch, actions] = useContext(GlobalContext);
   const { tasks } = state;
-
   function handleSave(task) {
     dispatch(actions.CREATE(task));
   }
-
   function handleDelete(name) {
     dispatch(actions.DELETE(name));
   }
-
   function handleEdit(name, task) {
     dispatch(actions.UPDATE({ name, task }))
   }
-
   function handleAdd() {
     setShowForm(true);
   }
-
   function handleCancel() {
     setShowForm(false);
   }
-
   return (
     <section className="todoListCmpt">
       <button onClick={handleAdd}>Add task</button>

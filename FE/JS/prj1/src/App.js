@@ -3,6 +3,7 @@ import React from 'react';
 import Grades from './views/Grades';
 import TodoList from '../src/components/TodoList';
 import GlobalProvider from '../src/context/global/provider';
+import ActionForm from './components/ActionForm';
 
 function App() {
 
@@ -231,12 +232,29 @@ function App() {
     }
   ]
 
+  const actions = [
+    {
+      title: "SEND",
+      primary: true
+    },
+    {
+      title: "PRINT",
+      primary: false
+    }
+  ]
+
   return (
     <div className="App">
-      {/* <GlobalProvider>
+      {/* <ActionForm actions={actions} >
+        <input type="text"></input>
+        <input type="text"></input>
+        <input type="text"></input>
+        <input type="text"></input>
+      </ActionForm> */}
+      <GlobalProvider>
         <TodoList />
-      </GlobalProvider> */}
-      <Grades subjectGrades={subjectGrades} />
+      </GlobalProvider>
+      {/* <Grades subjectGrades={subjectGrades} /> */}
     </div>
   );
 }

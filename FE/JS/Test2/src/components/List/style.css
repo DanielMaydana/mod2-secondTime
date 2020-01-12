@@ -1,0 +1,7 @@
+.listCmpt {
+    width: 100%;
+}
+
+.listCmpt > .taskCmpt + .taskCmpt {
+    margin-top: 10px;
+}

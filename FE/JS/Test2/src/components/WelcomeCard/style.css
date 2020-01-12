@@ -1,0 +1,7 @@
+.welcomeCard {
+    background: red;
+    height: 100px;
+    width: 200px;
+    user-select: none;
+    cursor: pointer;
+}

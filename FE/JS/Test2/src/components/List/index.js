@@ -11,7 +11,7 @@ export default function List({ entries, onDelete, onEdit }) {
   });
 
   return (
-    <section className="listCmpt" id="something">
+    <section className="listCmpt" id="somthing">
       {allEntries}
     </section>
   )

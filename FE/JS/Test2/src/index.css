@@ -12,10 +12,9 @@ code {
     monospace;
 }
 
-body, html, #root {
+body, html {
   height: 100vh;
   width: 100vw;
-  background-color: tomato;
 }
 
 * {

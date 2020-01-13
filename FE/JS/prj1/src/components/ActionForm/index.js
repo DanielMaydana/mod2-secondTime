@@ -25,7 +25,9 @@ export default function ActionForm({ children, actions, autofocus }) {
       <form onChange={formChangeHandler}>
         {children}
       </form>
-      {generateActions(actions)}
+      <section className="actions">
+        {generateActions(actions)}
+      </section>
     </section >
   )
 }

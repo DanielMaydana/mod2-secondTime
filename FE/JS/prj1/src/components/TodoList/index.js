@@ -1,5 +1,5 @@
 import './style.css'
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import TodoForm from '../TodoForm'
 import List from '../List'
 import GlobalContext from '../../context/global';

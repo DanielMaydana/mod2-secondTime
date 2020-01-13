@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 export default function TodoForm({ onCancel, onSave, value }) {
   const [text, setText] = useState('');
-  useEffect(() => setText(value), []);
+  useEffect(() => setText(value), [value]);
   function handleChange(event) {
     const value = event.target.value;
     setText(value);
   }
-  function handleSave(event) {
+  function handleSave() {
     if (!text) return;
     onSave({ name: text });
     setText('')

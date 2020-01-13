@@ -21,4 +21,8 @@
     height: 100%;
     width: 100%;
     background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }

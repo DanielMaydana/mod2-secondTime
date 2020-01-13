@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 
 export default function GradeCard({ generalInfo, monthlyGrades }) {
-
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const GRADE_TO_NUMBER = {
     "A+": 10,
@@ -34,10 +32,6 @@ export default function GradeCard({ generalInfo, monthlyGrades }) {
         <section className={`grade ${colorGrades(single.grade)}`}>{single.grade}</section>
       </section>
     );
-  }
-
-  const expandHandler = function () {
-    setIsExpanded(!isExpanded);
   }
 
   return (

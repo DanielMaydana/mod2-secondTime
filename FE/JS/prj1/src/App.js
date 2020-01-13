@@ -245,15 +245,15 @@ function App() {
 
   return (
     <div className="App">
-      <ActionForm actions={actions} >
+      {/* <ActionForm actions={actions} >
         <input type="text" required></input>
         <input type="text" required></input>
         <input type="text" required></input>
         <input type="text" required={true}></input>
-      </ActionForm>
-      {/* <GlobalProvider>
+      </ActionForm> */}
+      <GlobalProvider>
         <TodoList />
-      </GlobalProvider> */}
+      </GlobalProvider>
       {/* <Grades subjectGrades={subjectGrades} /> */}
     </div>
   );

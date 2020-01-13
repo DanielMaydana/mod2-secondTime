@@ -1,5 +1,5 @@
 import './style.css'
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GradeCard from '../../components/GradeCard'
 
 export default function Grades({ subjectGrades }) {

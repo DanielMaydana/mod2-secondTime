@@ -33,17 +33,12 @@ export default function GlobalReducer(state, action) {
     [actionTypes.UPDATE]: updateTask,
     [actionTypes.DELETE]: deleteTask
   }
-  // console.log("handlers", handlers);
 
   const reducer = ReducerCreator(initialState, handlers)
-
   console.log("REDUCER RET |", reducer)
 
   const reducer_eval = reducer(state, payload)
-
   console.log("reducer_eval_redCr |", reducer_eval)
-
-  // return reducer_eval
 
   switch (action.type) {
     case (actionTypes.CREATE):

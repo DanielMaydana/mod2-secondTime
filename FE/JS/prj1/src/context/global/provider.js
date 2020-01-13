@@ -5,6 +5,8 @@ import actions from './actions'
 
 function Provider({ children }) {
 
+  console.log("REDUCER", reducer);
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

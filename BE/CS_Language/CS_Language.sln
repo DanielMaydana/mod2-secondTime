@@ -12,7 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StandardList", "StandardList\StandardList.csproj", "{9B7AE93E-43DD-4688-B1CB-58FCABA90F9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxing", "Boxing\Boxing.csproj", "{1E397CB4-9622-4A0F-90F8-768B17F10B83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boxing", "Boxing\Boxing.csproj", "{1E397CB4-9622-4A0F-90F8-768B17F10B83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_test", "LINQ_test\LINQ_test.csproj", "{1D0507B3-DA7C-4D3A-8EBA-219DD275A05D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{1E397CB4-9622-4A0F-90F8-768B17F10B83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E397CB4-9622-4A0F-90F8-768B17F10B83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E397CB4-9622-4A0F-90F8-768B17F10B83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D0507B3-DA7C-4D3A-8EBA-219DD275A05D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0507B3-DA7C-4D3A-8EBA-219DD275A05D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0507B3-DA7C-4D3A-8EBA-219DD275A05D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0507B3-DA7C-4D3A-8EBA-219DD275A05D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

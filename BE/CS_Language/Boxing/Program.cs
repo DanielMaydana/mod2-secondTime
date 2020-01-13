@@ -22,9 +22,6 @@ namespace Boxing
 
             //test.TestRefInt(ref tempint);
             Console.WriteLine(tempint);
-
-            test.TestRefInt(tempObj.someint);
-            Console.WriteLine($"{ tempObj.someint}");
         }
 
 

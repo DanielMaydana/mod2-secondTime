@@ -9,14 +9,14 @@ export const initialState = {
   },
   tasks: []
 }
+const createTask = (state, task) => {
+  const updatedTasks = [...state.tasks, task];
+  return { ...state, tasks: updatedTasks };
+}
 const updateTask = function (state, modifiedTask) {
   const updatedTasks = [...state.tasks];
   const taskToEdit = updatedTasks.find(single => single.name === modifiedTask.name);
   taskToEdit.name = modifiedTask.task.name;
-  return { ...state, tasks: updatedTasks };
-}
-const createTask = function (state, task) {
-  const updatedTasks = [...state.tasks, task];
   return { ...state, tasks: updatedTasks };
 }
 const deleteTask = function (state, name) {
@@ -25,15 +25,30 @@ const deleteTask = function (state, name) {
   updatedTasks.splice(index, 1);
   return { ...state, tasks: updatedTasks };
 }
-// export default function GlobalReducer(state, action) {
-//   return ReducerCreator(initialState, {
-//     [actionTypes.CREATE]: createTask
-//   });
-// }
 export default function GlobalReducer(state, action) {
   const { payload } = action;
+
+  const handlers = {
+    [actionTypes.CREATE]: createTask,
+    [actionTypes.UPDATE]: updateTask,
+    [actionTypes.DELETE]: deleteTask
+  }
+  // console.log("handlers", handlers);
+
+  const reducer = ReducerCreator(initialState, handlers)
+
+  console.log("REDUCER RET |", reducer)
+
+  const reducer_eval = reducer(state, payload)
+
+  console.log("reducer_eval_redCr |", reducer_eval)
+
+  // return reducer_eval
+
   switch (action.type) {
-    case (actionTypes.CREATE): return createTask(state, payload);
+    case (actionTypes.CREATE):
+      console.log("reducer_eval_switch |", createTask(state, payload));
+      return createTask(state, payload);
     case (actionTypes.UPDATE): return updateTask(state, payload);
     case (actionTypes.DELETE): return deleteTask(state, payload);
     default: return state;

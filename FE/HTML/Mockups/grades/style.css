@@ -1,0 +1,113 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    --grey0: rgb(250, 250, 250);
+    --grey1: rgb(219, 219, 219);
+    --grey2: rgb(182, 182, 182);
+    --grey3: rgb(136, 136, 136);
+    --grey4: rgb(109, 109, 109);
+    --blue3: rgb(23, 103, 179);
+    --def-spacing: 16px;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar {
+    width: 100%;
+    height: 80px;
+    background-color: var(--blue3);
+    color: var(--grey0);
+    line-height: 80px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.view {
+    width: 100%;
+    height: calc(100% - 80px);
+    padding: 10px;
+}
+
+.view > .card {
+    float: left;
+    margin: 10px;
+}
+
+.card {
+    width: 350px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card > * {
+    padding: var(--def-spacing);
+    width: 100%;
+}
+
+.header { padding-bottom: 0; }
+
+.header .title { font-size: 28px; }
+
+.header .trainer { 
+    color: var(--grey3);
+    margin-top: 5px;
+}
+
+.header .mainScore { 
+    font-size: 42px; 
+    padding: var(--def-spacing) 0 0 0;
+}
+
+.body {
+    padding: 0 var(--def-spacing) 0 var(--def-spacing);
+    transition: max-height 500ms ease-out;
+    overflow: hidden;
+    max-height: 0;
+}
+
+.body.visible {
+    max-height: 400px;
+}
+
+.body > .entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.body > .entry:first-child { margin-top: var(--def-spacing); }
+
+.body > .entry:last-child { margin-bottom: var(--def-spacing); }
+
+.body > .entry + .entry {
+    margin-top: var(--def-spacing);
+}
+
+.entry > .score {
+    width: 20px;
+}
+
+.body .month {
+    color: var(--grey3);
+}
+
+.actions {
+    border-top: 1px solid var(--grey1);
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--blue3)
+}
+
+.actions .button {
+    display: inline;
+    line-height: 16px;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    border-radius: 2px;
+}

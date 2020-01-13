@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace CS_Language
 {
@@ -107,16 +109,32 @@ namespace CS_Language
 
             //-------------------------------------
 
-            Factory<Animal> animal = MakeDog;
-            Factory<Dog> dog = MakeDog;
+            //Factory<Animal> animal = MakeDog;
+            //Factory<Dog> dog = MakeDog;
 
-            animal = dog;
+            //animal = dog;
 
-            Action1<object> objAct1 = SampleObj;
-            Action1<string> strAct2 = SampleString;
+            //Action1<object> objAct1 = SampleObj;
+            //Action1<string> strAct2 = SampleString;
 
-            strAct2 = objAct1;
+            //strAct2 = objAct1;
+
+            //-------------------------------------
+
+            //List<int> myArr = new List<int> { 1, 2, 3, 46, 5 };
+
+            //IEnumerable<int> result = from n in myArr
+            //                          where n < 10
+            //                          select n;
+
+            //foreach (var number in result)
+            //{
+            //    Console.WriteLine(number);
+            //}
+
+
         }
+
         delegate T Factory<out T>();
         delegate void Action1<in T>(T arg);
 

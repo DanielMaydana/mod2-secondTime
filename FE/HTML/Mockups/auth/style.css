@@ -1,0 +1,75 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    font-family: Helvetica, Arial, sans-serif;
+    --grey0: rgb(238, 238, 238);
+    --grey1: rgb(200, 200, 200);
+    --grey2: rgb(170, 170, 170);
+    --grey3: rgb(138, 138, 138);
+    --blue3: rgb(23, 103, 179);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.content, .view {
+    height: 100%;
+    width: 100%;
+}
+
+.view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerCmpt {
+    width: 350px;
+    border: 1px solid var(--grey2);
+    border-radius: 4px;
+    padding: 25px;
+}
+
+.registerCmpt > * {
+    width: 100%;
+    user-select: none;
+}
+
+.registerCmpt > *:first-child { margin-bottom: 30px; }
+
+.registerCmpt > *:nth-child(n + 2) { margin-top: 25px;}
+
+.registerCmpt .title {
+    font-size: 32px;
+}
+
+.registerCmpt input {
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid var(--grey2);
+    border-radius: 4px;
+}
+
+.registerCmpt .button {
+    background-color: var(--blue3);
+    border-radius: 4px;
+    color: var(--grey0);
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.registerCmpt .link > * {
+    display: inline;
+}
+
+.link .plain { color: var(--grey3); }
+
+.link .marked { 
+    color: var(--blue3);
+    cursor: pointer;
+}

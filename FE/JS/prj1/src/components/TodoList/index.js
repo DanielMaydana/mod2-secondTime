@@ -1,7 +1,7 @@
 import './style.css'
 import React, { useState, useContext } from 'react'
-import TodoForm from '../TodoForm'
 import List from '../List'
+import TodoForm from '../TodoForm'
 import GlobalContext from '../../context/global';
 export default function TodoList() {
   const [showForm, setShowForm] = useState(false);

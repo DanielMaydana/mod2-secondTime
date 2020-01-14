@@ -1,7 +1,7 @@
 // REDUCER: receives an action and modifies the state
 // 1 store = 1 context
-import { actionTypes } from './actions'; // to know what actions do we support
-import ReducerCreator from '../reducerCreator';
+import ReducerCreator from '../reducerCreator'
+import { actionTypes } from './actions' // to know what actions do we support
 export const initialState = {
   user: {
     name: 'Rodolfo',
@@ -26,26 +26,10 @@ const deleteTask = function (state, name) {
   return { ...state, tasks: updatedTasks };
 }
 export default function GlobalReducer(state, action) {
-  const { payload } = action;
-
   const handlers = {
     [actionTypes.CREATE]: createTask,
     [actionTypes.UPDATE]: updateTask,
     [actionTypes.DELETE]: deleteTask
   }
-
-  const reducer = ReducerCreator(initialState, handlers)
-  console.log("REDUCER RET |", reducer)
-
-  const reducer_eval = reducer(state, payload)
-  console.log("reducer_eval_redCr |", reducer_eval)
-
-  switch (action.type) {
-    case (actionTypes.CREATE):
-      console.log("reducer_eval_switch |", createTask(state, payload));
-      return createTask(state, payload);
-    case (actionTypes.UPDATE): return updateTask(state, payload);
-    case (actionTypes.DELETE): return deleteTask(state, payload);
-    default: return state;
-  }
+  return ReducerCreator(state, action, handlers)
 }

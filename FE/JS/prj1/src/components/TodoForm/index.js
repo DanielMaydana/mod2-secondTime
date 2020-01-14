@@ -34,5 +34,6 @@ TodoForm.propTypes = {
 }
 TodoForm.defaultProps = {
   onCancel: function () { },
-  onSave: function () { }
+  onSave: function () { },
+  value: ""
 }

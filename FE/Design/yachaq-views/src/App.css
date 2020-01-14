@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  height: 100%;
+  width: 100%;
+  --blue00:rgb(206, 226, 255);
+  --blue0:rgb(174, 206, 255);
+  --blue1:rgb(151, 192, 255);
+  --blue2:rgb(130, 180, 255);
+  --blue3:rgb(96, 145, 219);
+  --gray-blue: rgb(157, 182, 219);
+  --grey00: rgb(247, 247, 247);
+  --grey1: rgb(197, 197, 197);
+  --grey2: rgb(173, 173, 173);
+  --grey3: rgb(136, 136, 136);
+  --white: rgb(254, 254, 254);
+  --green: rgb(122, 224, 122);
+  --red: rgb(255, 113, 113);
+  --yellow: rgb(255, 190, 49);
 }
 
 .App-logo {

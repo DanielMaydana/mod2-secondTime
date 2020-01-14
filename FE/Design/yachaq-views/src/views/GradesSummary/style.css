@@ -1,5 +1,7 @@
 .gradesSummaryView {
-    height: 380px;
-    width: 770px;
     background-color: green;
 }
+
+.gradesSummaryView .pills {
+    width: 120px;
+} 

@@ -88,9 +88,9 @@
     align-content: space-between;
     padding-top: 20px;
 }
-.dummy-view {
-    height: 380px;
-    width: 770px;
+.dummy-view, .gradesSummaryView {
+    height: 240px;
+    width: 605px;
     border: 1px solid black;
     display: block;
 }

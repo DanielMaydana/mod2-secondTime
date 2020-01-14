@@ -1,15 +1,17 @@
 import './style.css'
 import React from 'react'
-import GradeCard from '../../components/GradeCard'
-export default function GradesSummary({ monthlyGrades }) {
-  const generateCards = function (subjectGrades) {
-    return subjectGrades.map((element, index) =>
-      <GradeCard generalInfo={element.generalInfo} monthlyGrades={element.monthlyGrades} key={index} />
-    )
+import GradePill from '../../components/GradePill'
+export default function GradesSummary({ latestGrades }) {
+  const generatePills = function (grades) {
+    return grades.map((elem, index) => {
+      return <GradePill key={index} title={elem.title} grade={elem.grade} />
+    })
   }
   return (
     <section className="gradesSummaryView">
-      {/* {generateCards(monthlyGrades)} */}
+      <section className="pills">
+        {generatePills(latestGrades)}
+      </section>
     </section>
   )
 }

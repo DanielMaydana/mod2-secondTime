@@ -1,0 +1,28 @@
+.gradePillCmpt {
+    --radius: 14px;
+    height: 28px;
+    width: 100%;
+    border-radius: var(--radius);
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+
+.gradePillCmpt .grade {
+    width: calc(2 * var(--radius));
+    height: calc(2 * var(--radius));
+    line-height: calc(2 * var(--radius));
+    border-radius: var(--radius);
+    background-color: yellowgreen;
+}
+
+.gradePillCmpt .title {
+    margin-left: var(--radius);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: purple;
+}
+

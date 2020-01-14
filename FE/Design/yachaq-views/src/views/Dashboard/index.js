@@ -1,7 +1,7 @@
 import './style.css'
 import React from 'react'
 import GradesSumamry from '../GradesSummary'
-import { subjectGrades } from './dummy'
+import { latestGrades } from './dummy'
 export default function Dashboard() {
   return (
     <section className="dashboardView">
@@ -16,10 +16,10 @@ export default function Dashboard() {
         </section>
         <section className="display">
           <section className="header">
-            <img src='./brmc_logo.jpg' alt="" />
+            <img src='./leah1.jpg' alt="" />
           </section>
           <section className="body">
-            <GradesSumamry monthlyGrades={subjectGrades} />
+            <GradesSumamry latestGrades={latestGrades} />
             <section className="dummy-view" />
             <section className="dummy-view" />
             <section className="dummy-view" />

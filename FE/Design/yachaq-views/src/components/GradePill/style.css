@@ -3,11 +3,11 @@
     height: 28px;
     width: 100%;
     border-radius: var(--radius);
-    background-color: red;
     display: flex;
     justify-content: space-between;
     align-items: center;
     justify-items: center;
+    border: 1px solid var(--grey1);
 }
 
 .gradePillCmpt .grade {
@@ -15,14 +15,12 @@
     height: calc(2 * var(--radius));
     line-height: calc(2 * var(--radius));
     border-radius: var(--radius);
-    background-color: yellowgreen;
 }
 
 .gradePillCmpt .title {
+    max-width: calc(100% - calc(4 * var(--radius)));
     margin-left: var(--radius);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: purple;
 }
-

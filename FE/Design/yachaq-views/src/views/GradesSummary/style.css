@@ -1,7 +1,47 @@
 .gradesSummaryView {
-    background-color: green;
+    padding: 25px;
 }
 
-.gradesSummaryView .pills {
-    width: 120px;
-} 
+.gradesSummaryView > * {
+    float: left;
+}
+
+.gradesSummaryView > .title {
+    width: 100%;
+    padding: 15px;
+}
+
+.gradesSummaryView > .pills {
+    width: 200px;
+    border: 1px solid var(--grey2);
+    border-radius: 4px;
+    padding: 10px 25px 10px 25px;
+    margin-left: 50px;
+}
+
+.gradesSummaryView > .pills > .gradePillCmpt + .gradePillCmpt {
+    margin-top: 10px;
+}
+
+.gradesSummaryView > .chart {
+    margin-right: 50px;
+    height: 219px;
+    width: 420px;
+    float: right;
+    border-radius: 4px;
+}
+
+.gradesSummaryView > .chart img{
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--grey2);
+    border-radius: inherit;
+}
+
+
+.gradesSummaryView > .pills .grade.good { background-color: var(--green); }
+
+.gradesSummaryView > .pills .grade.average { background-color: var(--yellow); }
+
+.gradesSummaryView > .pills .grade.poor { background-color: var(--red); }

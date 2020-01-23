@@ -1,0 +1,20 @@
+-- ActionButton --
+
+      <div>
+        <ActionButton onClick={() => console.log("button clicked")} text="DEFAULT" />
+        <ActionButton onClick={() => console.log("button clicked")} text="PRIMARY" type="primary" />
+        <ActionButton onClick={() => console.log("button clicked")} text="ACCEPTED" type="accepted" />
+        <ActionButton onClick={() => console.log("button clicked")} text="WARNING" type="warning" />
+        <ActionButton onClick={() => console.log("button clicked")} text="DANGER" type="danger" />
+        <ActionButton onClick={() => console.log("button clicked")} text="DISABLED" disabled={true} />
+      </div>
+      <div>
+        <ActionButton onClick={() => console.log("button clicked")} text="DEFAULT" icon="eject" />
+        <ActionButton onClick={() => console.log("button clicked")} text="PRIMARY" type="primary" icon="eject" />
+        <ActionButton onClick={() => console.log("button clicked")} text="ACCEPTED" type="accepted" icon="eject" />
+        <ActionButton onClick={() => console.log("button clicked")} text="WARNING" type="warning" icon="eject" />
+        <ActionButton onClick={() => console.log("button clicked")} text="DANGER" type="danger" icon="eject" />
+        <ActionButton onClick={() => console.log("button clicked")} text="DISABLED" disabled={true} icon="eject" />
+      </div>
+
+

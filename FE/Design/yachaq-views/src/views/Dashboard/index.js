@@ -3,8 +3,10 @@ import React from 'react'
 import GradesSumamry from '../GradesSummary'
 import { latestGrades } from './dummy'
 export default function Dashboard() {
+
   return (
     <section className="dashboardView">
+      <section className="resolution">{window.screen.width} x {window.screen.height}</section>
       <section className="toolbar">YACHAQ</section>
       <section className="content">
         <section className="sidenavbar">

@@ -1,3 +1,10 @@
+.dashboardView .resolution {
+    position: fixed;
+    color: black;
+    left: 0;
+    top: 0;
+}
+
 .dashboardView {
     height: 100%;
     width: 100%;
@@ -63,7 +70,11 @@
     width: calc(100% - 250px);
     background-color: var(--white);
     overflow-y: auto;
-    background-color: rgb(250, 236, 114);
+    background-color: var(--grey1);
+}
+
+.display > section + section {
+    margin-top: 25px;
 }
 /* HEADER */
 .display .header {
@@ -71,9 +82,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: rebeccapurple;
 }
-.display .header img{
+.display .header img {
     height: 100px;
     width: 100px;
     border-radius: 50px;
@@ -81,16 +91,18 @@
 }
 /* BODY */
 .display .body {
-    height: calc(100% - 100px);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    padding-top: 20px;
+    display: grid;
+    height: calc(100% - 125px);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1em;
 }
 .dummy-view, .gradesSummaryView {
-    height: 240px;
-    width: 605px;
-    border: 1px solid black;
-    display: block;
+    grid-column: span 1;
+    grid-row: span 1;
+    /* height: 325px;
+    width: 790px; */
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    /* display: block; */
 }

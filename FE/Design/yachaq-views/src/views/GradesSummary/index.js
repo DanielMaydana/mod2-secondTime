@@ -9,8 +9,13 @@ export default function GradesSummary({ latestGrades }) {
   }
   return (
     <section className="gradesSummaryView">
+      <section className="title">GRADES</section>
       <section className="pills">
+        <h5>Latest Grades</h5>
         {generatePills(latestGrades)}
+      </section>
+      <section className="chart">
+        <img src="./grades.png" alt="" />
       </section>
     </section>
   )

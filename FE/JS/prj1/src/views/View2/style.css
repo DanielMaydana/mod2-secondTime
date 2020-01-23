@@ -1,0 +1,25 @@
+.view2Cmpt {
+    height: 100%;
+    width: 100%;
+}
+
+.view2Cmpt .profile {
+    height: 250px;
+    width: 100%;
+    background: rgb(255, 162, 145);
+}
+
+.view2Cmpt .mainDisplay {
+    height: calc(100% - 250px);
+    width: 100%;
+    background: rgb(166, 255, 246);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 25px;
+}
+
+.view2Cmpt .mainDisplay .widget {
+    /* width: 200px;
+    height: 200px; */
+    background: rgb(118, 118, 216);
+} 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 export default function TodoForm({ onCancel, onSave, value }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('')
   useEffect(() => setText(value), [value]);
   function handleChange(event) {
     const value = event.target.value;

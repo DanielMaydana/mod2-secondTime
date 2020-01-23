@@ -1,6 +1,6 @@
 // REDUCER: receives an action and modifies the state
 // 1 store = 1 context
-import ReducerCreator from '../reducerCreator'
+import ReducerCreator from './../../utilities/reducerCreator'
 import { actionTypes } from './actions' // to know what actions do we support
 export const initialState = {
   user: {

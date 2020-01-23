@@ -4,8 +4,8 @@ import List from '../List'
 import TodoForm from '../TodoForm'
 import GlobalContext from '../../context/global';
 export default function TodoList() {
-  const [showForm, setShowForm] = useState(false);
-  const [state, dispatch, actions] = useContext(GlobalContext);
+  const [showForm, setShowForm] = useState(false)
+  const [state, dispatch, actions] = useContext(GlobalContext)
   const { tasks } = state;
   function handleSave(task) {
     dispatch(actions.CREATE(task));

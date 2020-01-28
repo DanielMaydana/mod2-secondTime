@@ -1,0 +1,22 @@
+.sidenavOption {
+  position: relative;
+}
+
+.sidenavOption .actionButtonCmpt{
+  all: unset;
+  height: 46px;
+  width: 100%;
+  color: var(--background-2);
+  display: flex;
+  background-color: var(--secondary-1);
+  align-items: center;
+  text-transform: capitalize;
+  padding: 0 10px;
+  box-sizing: border-box;
+  transition: all ease 250ms;
+  cursor: pointer;
+}
+
+.sidenavOption .actionButtonCmpt:hover {
+  background-color: var(--primary-1);
+}

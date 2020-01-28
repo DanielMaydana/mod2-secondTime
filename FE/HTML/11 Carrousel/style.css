@@ -1,0 +1,82 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    font-family: Helvetica, sans-serif;
+    --qty: 19
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.carrousel {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    background-color: rgb(228, 90, 90);
+    line-height: 300px;
+    overflow-x: hidden;
+}
+
+.carrousel > .fade {
+    position: absolute;
+    height: 100%;
+    width: 120px;
+    z-index: 1000;
+}
+
+.carrousel > .fade.left {
+    left: 0;
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(255, 255, 255));
+}
+
+.carrousel > .fade.right {
+    left: calc(100% - 120px);
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 255, 255));
+}
+
+.carrousel > .content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    animation-name: carousel;
+    animation-duration: 50000ms;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@keyframes carousel {
+    from { transform: translateX(0%); }
+    to { transform: translateX(calc(-280px * 19)); }
+}
+
+
+
+.carrousel > .content > .card {
+    flex-shrink: 0;
+    float: left;
+    height: 250px;
+    width: 280px;
+    background-color: rgb(255, 195, 184);
+    line-height: 250px;
+    text-align: center;
+}
+
+.carrousel > .content > .card {
+    margin-left: 25px;
+}
+
+.carrousel > .content > .card:last-child {
+    margin-right: 25px;
+}
+
+/* .carrousel >  */

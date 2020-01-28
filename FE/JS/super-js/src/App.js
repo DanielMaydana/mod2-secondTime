@@ -11,6 +11,9 @@ import View2 from './views/View2';
 import View3 from './views/View3';
 import ViewTodoList from './views/ViewTodoList'
 import PortalLayout from './components/PortalLayout';
+import SideNavbar from './components/SideNavbar';
+import SidenavOption from './components/SidenavOption';
+
 function App() {
   const [userPassword, setPassword] = useState('')
   const getPassword = (event) => { setPassword(event.target.value) }
@@ -39,7 +42,6 @@ function App() {
       component: ViewTodoList
     }
   ]
-
   return (
     <div className="App">
       {/* <button onClick={toggle}>Memleak</button>
@@ -52,8 +54,15 @@ function App() {
       {/* <GlobalProvider>
         <TodoList />
       </GlobalProvider> */}
+      <SideNavbar title={'My apps'}>
+        <SidenavOption text={'Dashboard'} icon={'dashboard'} onClick={()=>console.log('Dashboard')} />
+        <SidenavOption text={'Grades'} icon={'ballot'} onClick={()=>console.log('Grades')} />
+        <SidenavOption text={'Tickets'} icon={'assignment_turned_in'} onClick={()=>console.log('Tickets')} />
+        <SidenavOption text={'Tasks'} icon={'assignment'} onClick={()=>console.log('Tasks')} />
+        <SidenavOption text={'Meetings'} icon={'group'} onClick={()=>console.log('Meetings')} />
+      </SideNavbar>
       {/* <Grades subjectGrades={subjectGrades} /> */}
-      <PortalLayout views={viewArray} />
+      {/* <PortalLayout views={viewArray} /> */}
     </div>
   );
 }

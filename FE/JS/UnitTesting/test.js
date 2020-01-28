@@ -1,5 +1,7 @@
 var assert = require('assert');
+var CreateCustomError = require('./Error')
 var Character = require('./Character.js');
+console.log(CreateCustomError('sad'));
 describe('Array', function () {
   describe('#new Character()', function () {
     it('should create a character with health 100 when instantiated as human', function () {
@@ -23,20 +25,19 @@ describe('Array', function () {
       assert.equal(actual.health, expected);
     });
     it('should throw an exception when passed a null value as alias', function () {
-      const expected = 'The alias of the character can\'t be \'null\'';
+      const expected = CreateCustomError('The alias of the character can\'t be \'null\'');
       const actual = () => new Character(null, 25, 'dwarf');
-      assert.throws(actual, Error, expected);
+      assert.throws(actual, expected);
     });
-
     it('should throw an exception when passed a null value as age', function () {
-      const expected = 'The age of the character can\'t be \'null\'';
+      const expected = CreateCustomError('The age of the character can\'t be \'null\'');
       const actual = () => new Character('daniel', null, 'dwarf');
-      assert.throws(actual, Error, expected);
+      assert.throws(actual, expected);
     });
     it('should throw an exception when passed a null value as type', function () {
-      const expected = 'The type of the character can\'t be \'null\'';
+      const expected = CreateCustomError('The type of the character can\'t be \'null\'');
       const actual = () => new Character('daniel', 25, null);
-      assert.throws(actual, Error, expected);
+      assert.throws(actual, expected);
     });
   });
   describe('#levelUp()', function () {

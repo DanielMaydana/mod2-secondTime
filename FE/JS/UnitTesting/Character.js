@@ -1,24 +1,24 @@
 const PROPS_BY_KIND = {
   human: {
     health: 100,
-    increment: 450
+    healthIncrement: 450,
+    manaIncrement: 
   },
   elf: {
     health: 150,
-    increment: 600
+    healthIncrement: 600
   },
   troll: {
     health: 400,
-    increment: 50
+    healthIncrement: 50
   },
   dwarf: {
     health: 300,
-    increment: 480
+    healthIncrement: 480
   }
 }
 function isNull(fieldName, value) {
   if (value === null) throw new Error(`The ${fieldName} of the character can\'t be \'null\'`);
-  else return value
 }
 function getHealthByKind(type) {
   return PROPS_BY_KIND[type].health;
@@ -32,7 +32,7 @@ class Character {
     this.health = getHealthByKind(type);
   }
   levelUp() {
-    this.health += PROPS_BY_KIND[this.type].increment;
+    this.health += PROPS_BY_KIND[this.type].healthIncrement;
   }
 }
 

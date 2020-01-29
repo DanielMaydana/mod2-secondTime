@@ -1,3 +1,7 @@
+import View1 from './views/View1';
+import View2 from './views/View2';
+import View3 from './views/View3';
+import ViewTodoList from './views/ViewTodoList'
 export const subjectGrades = [
   {
     generalInfo: {
@@ -231,5 +235,28 @@ export const actions = [
   {
     title: "PRINT",
     primary: false
+  }
+]
+
+export const viewArray = [
+  {
+    title: 'To View 1',
+    path: '/view1',
+    component: View1,
+  },
+  {
+    title: 'To View 2',
+    path: '/view2',
+    component: View2,
+  },
+  {
+    title: 'To View 3',
+    path: '/view3',
+    component: View3,
+  },
+  {
+    title: 'Todo List',
+    path: '/todoList',
+    component: ViewTodoList
   }
 ]

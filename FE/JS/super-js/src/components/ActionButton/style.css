@@ -1,22 +1,7 @@
-.actionButtonCmpt {
-  border-radius: 4px;
-  border: 1px solid grey;
-  color: black;
-  padding: 5px;
-  transition: all 500ms;
+.customButton {
+  transform: all ease 0.3ms;
 }
 
-.actionButtonCmpt.primary.invalid {
-  background-color: grey;
-  color: rgb(172, 172, 172);
-  user-select: none;
-}
-
-.actionButtonCmpt.primary.valid {
-  user-select: auto;
-  cursor: pointer;
-}
-
-.actionButtonCmpt.primary { background-color: rgb(0, 195, 255); }
-
-.actionButtonCmpt.default { background-color: rgb(243, 255, 138); }
+.funnyFrist { transform: translate(50px, 320px); }
+.funnySecond { transform: translate(20px, 120px); }
+.funnyThird { transform: translate(80px, 220px); }

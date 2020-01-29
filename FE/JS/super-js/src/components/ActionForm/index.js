@@ -8,21 +8,17 @@ export default function ActionForm({ children, actions, autofocus }) {
     if(autofocus) formRef.current.querySelector('input').focus()
   }, [])
   const formRef = useRef();
-  // const isValid = formRef.current && formRef.current.checkValidity();
   console.log(uuid());
   function checkFormValidity() {
     setValid(formRef.current.checkValidity());
   }
-  function onHover(item) {
-    // item.target.style.position = 'absolute';
-    // console.log(item.target.style);
-  }
   const generateActions = function (actions) {
+    console.log(actions);
     return actions.map((elem, index) => {
       const validity = isValid ? "valid" : "invalid"
       console.log(isValid);
       const isPrimary = `${validity} ${elem.primary ? "primary" : "default"}`
-      return <ActionButton title={elem.title} onHover={onHover} isPrimary={isPrimary} key={index} />
+      return <ActionButton title={elem.title} isPrimary={isPrimary} />
     })
   }
   return (

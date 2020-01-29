@@ -25,7 +25,7 @@ export default function PortalLayout({ views }) {
     <div className="PortalLayout">
       <React.Fragment>
         <BrowserRouter>
-          <div className="menu"> {menuNodes} </div>
+          <div className="menu">{menuNodes}</div>
           <div className="viewDisplay">
             <Switch> {viewNodes} </Switch>
           </div>

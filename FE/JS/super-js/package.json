@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.1",
+    "classnames": "^2.2.6",
     "dev27-components": "^1.0.4",
     "dotenv": "^8.2.0",
     "mocha": "^7.0.0",

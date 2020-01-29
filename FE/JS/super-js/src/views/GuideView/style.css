@@ -1,0 +1,19 @@
+.guideView {
+  height: 100%;
+  width: 100%;
+}
+
+.guideView * {
+  box-sizing: border-box;
+}
+
+.guideView .header {
+  padding: 44px;
+  text-align: center;
+}
+
+.guideView .allButtons {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}

@@ -1,9 +1,10 @@
 import './style.css'
 import * as signalR from '@aspnet/signalr'
 import React, { useRef, useState, useEffect } from 'react'
+import { postMessage } from '../../requestAPI/ChatService'
 export default function Chat() {
   const SIGNALR_HUB = '/ChatHub'
-  const SERVER_URL = 'https://localhost:44341'
+  const SERVER_URL = process.env.REACT_APP_CHAT_SERVICE
   const [connection, setConnection] = useState()
   const [messageLog, setLog] = useState()
   const [text, setText] = useState('')
@@ -25,11 +26,12 @@ export default function Chat() {
       connection.on('getMessage', receiveMessage);
     }
   }, [connection]);
-  function receiveMessage(_message, _user) {
+  function receiveMessage(_user, _message) {
     setLog(log => [...log, { user: _user, message: _message }])
   }
   function sendMessage() {
-    connection.invoke('getMessage', text, user)
+    postMessage({ text, user })
+    // connection.invoke('getMessage', text, user)
     setText('')
   }
   function generateMessages() {

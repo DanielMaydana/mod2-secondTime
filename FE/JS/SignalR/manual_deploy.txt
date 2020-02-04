@@ -1,0 +1,14 @@
+sudo docker rm -f chat_client
+sudo docker rm -f chat_service
+
+sudo docker rmi -f chat_client
+sudo docker rmi -f chat_service
+
+sudo docker build -t chat_service .
+sudo docker build -t chat_client .
+
+sudo docker create --name chat_service -p 3500:80 chat_service
+sudo docker create --name chat_client --env REACT_APP_CHAT_SERVICE="https://10.28.111.39:3500" -p 3000:80 chat_client 
+
+sudo docker start chat_service
+sudo docker start chat_client

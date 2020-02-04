@@ -33,7 +33,16 @@ namespace ChatPOC
                   .AllowAnyMethod()
                   .AllowAnyHeader()
                   .WithOrigins("http://localhost:3000")
+                  //.AllowAnyOrigin()
                   .AllowCredentials()));
+
+            services.AddCors(options => options.AddPolicy("CorsPostPolicy", builder =>
+
+                  builder
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowAnyOrigin()
+                      ));
             services.AddSignalR();
 
         }
@@ -52,6 +61,8 @@ namespace ChatPOC
 
             app.UseAuthorization();
             app.UseCors("CorsPolicy");
+            app.UseCors("CorsPostPolicy");
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

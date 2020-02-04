@@ -1,0 +1,128 @@
+.chatCmpt {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: indianred;
+  font-size: var(--font-size-l);
+  padding: 54px;
+}
+
+.chatCmpt button {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 8px 24px 8px 24px;
+  border: 1px solid transparent;
+  background-color: var(--primary-1);
+  color: var(--background-1);
+}
+
+.chatCmpt button:disabled {
+  background-color: var(--background-1);
+  border: 1px solid var(--surface-1);
+  color: var(--surface-1);
+}
+
+.chatCmpt input[type="text"] {
+  padding: 4px 8px 4px 8px;
+  height: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--surface-1);
+}
+
+.chatCmpt .register {
+  width: 224px;
+  border: 1px solid var(--surface-1);
+  background-color: var(--background-1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px 24px 12px;
+}
+
+.chatCmpt .register > * + * {
+  margin-top: 16px;
+}
+
+.chatCmpt .chat {
+  width: 554px;
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--background-1);
+  border: 1px solid var(--background-4);
+  padding: 16px;
+}
+
+.chatCmpt .chat .message-input {
+  width: 100%;
+  margin-top: 12px;
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatCmpt .chat .message-input {
+  --send-side-length: 40px;
+}
+
+.chatCmpt .chat .message-input .send {
+  width: var(--send-side-length);
+  height: var(--send-side-length);
+  background-color: yellowgreen;
+  padding: 8px;
+  float: right;
+  margin-left: 12px;
+  border-radius: calc(var(--send-side-length) / 2);
+  background-color: var(--secondary-2);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+
+.chatCmpt .chat .message-input .send img {
+  height: 90%;
+  width: 90%;
+}
+
+.chatCmpt .chat .message-input input {
+  width: calc(100% - calc(var(--send-side-length) + 12px));
+  height: var(--send-side-length);
+  padding: 12px 8px 12px 8px;
+  border: 1px solid var(--surface-1);
+  border-radius: calc(var(--send-side-length) / 2);
+}
+
+.chatCmpt .chat .feed {
+  width: 100%;
+  height: calc(100% - 64px);
+  overflow-y: auto;
+}
+
+.chatCmpt .feed > .message + .message {
+  margin-top: 8px;
+}
+
+.chatCmpt .message {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.chatCmpt .message.self { justify-content: flex-end; }
+
+.chatCmpt .message .body {
+  float: left;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--background-3);
+  height: 100%;
+}
+
+.chatCmpt .message.self .body { background-color: rgb(193, 255, 193); }
+
+.chatCmpt .message .body .user {
+  font-weight: bold;
+}

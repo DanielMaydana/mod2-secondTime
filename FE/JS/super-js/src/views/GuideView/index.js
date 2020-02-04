@@ -6,15 +6,21 @@ export default function GuideView() {
   return (
     <section className="guideView">
       <Guide steps={tutorial} open={true} />
-      <section  className="sidenavMenuCmpt">
-        <section className="header">Header</section>
-        <button id="btn1">CLICK</button>
+      <section className="sidenavMenuCmpt">
+        <section className="content">
+          <section className="header">Header</section>
+          <button id="btn1">CLICK</button>
+        </section>
       </section>
       <section className="display">
         <button id="btn2">CLICK</button>
         <button id="btn3">CLICK</button>
         <button id="btn4">+</button>
-      </section>  
+        <section className={'bottom-rect'} />
+        <section className={'top-rect'} />
+        <section className={'right-rect'} />
+
+      </section>
     </section>
   )
 }

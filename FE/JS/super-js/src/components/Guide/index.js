@@ -1,34 +1,43 @@
 import './style.css'
-import React, { useState, useEffect, useRef } from 'react'
-import Message from './Message'
+import React, { useState, useEffect } from 'react'
+import Step from './Step'
 export default function Guide({ steps, open }) {
   const [index, setIndex] = useState(0)
-  const [position, setPosition] = useState({top: 0, left: 0, width: 0, height: 0})
+  const [isOpen, setIsOpen] = useState(open)
+  const [targetInfo, setTargetInfo] = useState({ top: 0, left: 0, width: 0, height: 0 })
   useEffect(() => {
-    updatePosition()
+    updateTarget()
   }, [])
   useEffect(() => {
-    updatePosition()
+    updateTarget()
   }, [index]);
-  function updatePosition() {
+  function updateTarget() {
     const element = document.querySelector(steps[index].selector)
     const { top, left, width, height } = element.getBoundingClientRect()
-    setPosition({ top, left, width, height })
+    setTargetInfo({ top, left, width, height })
   }
-  function onPrev() { 
-    if( index > 0 ){
-      setIndex( i => i - 1 )
-    }
-  }
-  function onNext() {
-    if( index < steps.length - 1 ){
-      setIndex( i => i + 1 ) }
-    }
+  function onPrev() { setIndex(i => i - 1) }
+  function onNext() { setIndex(i => i + 1) }
+  function onClose() { setIsOpen(false) }
   return (
     <section className={'guideCmpt'}>
       {
-        open &&
-        <Message position={position} content={steps[index].content} navigation={{ onPrev, onNext }}/>
+        isOpen &&
+        <Step
+          message={{
+            content: steps[index].content,
+            navigation: {
+              onClose,
+              onPrev,
+              onNext
+            }
+          }}
+          targetInfo={targetInfo}
+          stepInfo={{
+            index,
+            max: steps.length,
+          }}
+        />
       }
     </section>
   )

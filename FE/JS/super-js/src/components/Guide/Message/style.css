@@ -1,13 +1,27 @@
-.guideMessage {
-  position: fixed;
+.guideMessage > .message {
+  position: absolute;
   width: 240px;
   box-sizing: border-box;
   background-color: rgb(253, 245, 170);
   padding: 10px;
   z-index: 10000;
+  transition: all 500ms;
 }
 
-.guideMessage > .content {
+.guideMessage > .message > .skipAll {
+  background-color: red;
+  width: fit-content;
+  padding: 4px 12px 4px 12px;
+  display: block;
+  margin-bottom: 14px;
+  background-color: rgb(117, 182, 207);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.guideMessage > .message > .content {
   max-height: 100px;
   width: 100%;
   overflow-x: auto;
@@ -17,7 +31,7 @@
   color: grey;
 }
 
-.guideMessage > .actions {
+.guideMessage > .message > .actions {
   border: none;
   display: flex;
   margin-top: 10px;
@@ -25,7 +39,7 @@
   flex-shrink: unset;
 }
 
-.guideMessage > .actions > button {
+.guideMessage > .message > .actions > button {
   position: relative;
   all: unset;
   font-size: 24px;
@@ -40,6 +54,11 @@
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.guideMessage > .actions > button:hover {
+.guideMessage > .message > .actions > button:enabled:hover,
+.guideMessage > .skipAll:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.guideMessage > .message > .actions > button:disabled {
+  background-color: rgb(182, 182, 182);
 }

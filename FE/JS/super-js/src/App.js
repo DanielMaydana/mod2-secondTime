@@ -1,9 +1,9 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { subjectGrades, actions, viewArray } from './dummy.js'
+import Chat from './components/Chat'
 import ActionForm from './components/ActionForm';
 import ActionButton from './components/ActionButton';
-
 import GuideView from './views/GuideView';
 import MemoryLeakTest from './components/MemoryLeakTest';
 import Grades from './views/Grades';
@@ -18,8 +18,6 @@ function App() {
   const getPassword = (event) => { setPassword(event.target.value) }
   const [show, setShow] = useState(false)
   const toggle = function () { setShow(show => !show) }
-
-
   return (
     <div className="App">
       {/* <button onClick={toggle}>Memleak</button>
@@ -29,7 +27,8 @@ function App() {
         <input type="password" onChange={getPassword} required></input>
         <input type="password" pattern={userPassword} required></input>
       </ActionForm> */}
-      <GuideView />
+      {/* <GuideView /> */}
+      <Chat />
       {/* <GlobalProvider>
         <TodoList />
       </GlobalProvider> */}

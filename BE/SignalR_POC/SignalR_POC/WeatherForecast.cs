@@ -1,6 +1,6 @@
 using System;
 
-namespace Chat
+namespace SignalR_POC
 {
     public class WeatherForecast
     {

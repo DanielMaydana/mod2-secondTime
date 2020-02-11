@@ -1,0 +1,10 @@
+.dropdownCmpt.hidden > .dropOption  {
+  display: none;
+  /* border: 1px solid grey; */
+}
+
+.dropdownCmpt .dropOption {
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid grey;
+}

@@ -7,17 +7,24 @@ import ActionButton from './components/ActionButton';
 import GuideView from './views/GuideView';
 import MemoryLeakTest from './components/MemoryLeakTest';
 import Grades from './views/Grades';
+import LayoutView from './views/LayoutView';
 import TodoList from '../src/components/TodoList';
 import GlobalProvider from '../src/context/global/provider';
 import PortalLayout from './components/PortalLayout';
 import SideNavbar from './components/SideNavbar';
 import SidenavOption from './components/SidenavOption';
+import Calendar from 'react-calendar';
 
 function App() {
   const [userPassword, setPassword] = useState('')
   const getPassword = (event) => { setPassword(event.target.value) }
   const [show, setShow] = useState(false)
   const toggle = function () { setShow(show => !show) }
+
+  function onChange (time) {
+    console.log(time);
+  }
+
   return (
     <div className="App">
       {/* <button onClick={toggle}>Memleak</button>
@@ -27,11 +34,12 @@ function App() {
         <input type="password" onChange={getPassword} required></input>
         <input type="password" pattern={userPassword} required></input>
       </ActionForm> */}
-      {/* <GuideView /> */}
-      <Chat />
+      {/* <GuideView />  */}
+      {/* <Chat /> */}
       {/* <GlobalProvider>
         <TodoList />
       </GlobalProvider> */}
+      <LayoutView />
       {/* <SideNavbar title={'My apps'}>
         <SidenavOption text={'Dashboard'} icon={'dashboard'} onClick={()=>console.log('Dashboard')} />
         <SidenavOption text={'Grades'} icon={'ballot'} onClick={()=>console.log('Grades')} />

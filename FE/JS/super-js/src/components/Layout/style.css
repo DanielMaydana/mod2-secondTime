@@ -1,0 +1,97 @@
+.layoutCmpt {
+  height: 100%;
+  width: 100%;
+  --primary-1: #e2965d;
+  --primary-2: #FB8122;
+  --secondary-1: #3b3e42;
+  --secondary-2: #1D2228;
+  --background-1: #fbfbfb;
+  --background-2: #f1f1f1;
+  --background-3: #dadada;
+  --toolbar-height: 158px;
+  --menu-width: 212px;
+}
+
+.layoutCmpt .layout-content {
+  height: calc(100% - var(--toolbar-height));
+  width: 100%;
+  background-color: red;
+}
+
+.layoutCmpt .layout-content > .content {
+  float: left;
+}
+
+/* TOOLBAR */
+
+.layoutCmpt .layout-toolbar {
+  width: 100%;
+  height: var(--toolbar-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-2);
+  --tb-actions-width: 344px;
+  --icon-size: 28px;
+  --icon-color: var(--background-1);
+  --default-margin: 16px;
+}
+
+.layoutCmpt .layout-toolbar section.sandwich {
+  height: 100%;
+  color: var(--icon-color);
+  font-weight: var(--icon-size);
+  margin: var(--default-margin);
+  position: relative;
+  background-color: red;
+  padding: 12px;
+  margin: 0;
+}
+
+.layoutCmpt .layout-toolbar section.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: red;
+  height: 100%;
+}
+
+.layoutCmpt .layout-toolbar section.actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: var(--tb-actions-width);
+  position: relative;
+}
+
+.layoutCmpt .layout-toolbar section.actions:after {
+  background-color: var(--primary-2);
+  content: '';
+  width: 2px;
+  height: 38px;
+  position: absolute;
+  left: 0;
+}
+
+.layoutCmpt section.actions .material-icons {
+  font-size: var(--icon-size);
+  color: var(--icon-color);
+  padding: 0;
+}
+
+/* MENU */
+
+.layoutCmpt .content.menu {
+  height: 100%;
+  width: var(--menu-width);
+  background-color: var(--primary-2);
+}
+
+/* DISPLAY */
+
+.layoutCmpt .layout-content .content.display {
+  width: calc(100% - var(--menu-width));
+  height: 100%;
+  background-color: var(--secondary-1);
+}

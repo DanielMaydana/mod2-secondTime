@@ -1,19 +1,23 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { subjectGrades, actions, viewArray } from './dummy.js'
-import Chat from './components/Chat'
-import ActionForm from './components/ActionForm';
-import ActionButton from './components/ActionButton';
-import GuideView from './views/GuideView';
-import MemoryLeakTest from './components/MemoryLeakTest';
-import Grades from './views/Grades';
-import LayoutView from './views/LayoutView';
-import TodoList from '../src/components/TodoList';
-import GlobalProvider from '../src/context/global/provider';
+import View1 from './views/View1';
+import View2 from './views/View2';
+import View3 from './views/View3';
+
+// import Chat from './components/Chat'
+// import ActionForm from './components/ActionForm';
+// import ActionButton from './components/ActionButton';
+// import GuideView from './views/GuideView';
+// import MemoryLeakTest from './components/MemoryLeakTest';
+// import Grades from './views/Grades';
+// import LayoutView from './views/LayoutView';
+// import TodoList from '../src/components/TodoList';
+// import GlobalProvider from '../src/context/global/provider';
 import PortalLayout from './components/PortalLayout';
-import SideNavbar from './components/SideNavbar';
-import SidenavOption from './components/SidenavOption';
-import Calendar from 'react-calendar';
+// import SideNavbar from './components/SideNavbar';
+// import SidenavOption from './components/SidenavOption';
+// import Calendar from 'react-calendar';
 
 function App() {
   const [userPassword, setPassword] = useState('')
@@ -21,7 +25,7 @@ function App() {
   const [show, setShow] = useState(false)
   const toggle = function () { setShow(show => !show) }
 
-  function onChange (time) {
+  function onChange(time) {
     console.log(time);
   }
 
@@ -39,7 +43,7 @@ function App() {
       {/* <GlobalProvider>
         <TodoList />
       </GlobalProvider> */}
-      <LayoutView />
+      {/* <LayoutView /> */}
       {/* <SideNavbar title={'My apps'}>
         <SidenavOption text={'Dashboard'} icon={'dashboard'} onClick={()=>console.log('Dashboard')} />
         <SidenavOption text={'Grades'} icon={'ballot'} onClick={()=>console.log('Grades')} />
@@ -48,7 +52,8 @@ function App() {
         <SidenavOption text={'Meetings'} icon={'group'} onClick={()=>console.log('Meetings')} />
       </SideNavbar> */}
       {/* <Grades subjectGrades={subjectGrades} /> */}
-      {/* <PortalLayout views={viewArray} /> */}
+      <PortalLayout views={viewArray} />
+      {/* <View2 /> */}
     </div>
   );
 }

@@ -1,41 +1,25 @@
-.PortalLayout {
+.portalLayoutCmpt {
     height: 100%;
     width: 100%;
+    --portal-menu-width: 220px;
 }
 
-.PortalLayout > * {
+.portalLayoutCmpt > * {
     float: left;
 }
 
-.menu {
-    width: 250px;
+.portalLayoutCmpt .menu {
+    width: var(--portal-menu-width);
     height: 100%;
-    background: rgb(255, 146, 106);
 }
 
-.menu > .entry {
-    background: coral;
-    width: 100%;
-    height: 40px;
-}
-
-.menu > .entry a {
-    display: flex;
-    align-items: center;
-    padding-left: 25px;
-    user-select: none;
+.portalLayoutCmpt .menu a {
+    box-sizing: border-box;
     text-decoration: none;
-    width: 100%;
-    height: 100%;
+    padding: 8px 8px 8px 16px;
 }
 
-.menu > .entry:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.viewDisplay {
+.portalLayoutCmpt .display {
     height: 100%;
-    width: calc(100% - 250px);
-    background: rgb(191, 147, 236);
+    width: calc(100% - var(--portal-menu-width));
 }

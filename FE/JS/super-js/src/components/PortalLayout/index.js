@@ -20,7 +20,6 @@ export default function PortalLayout({ views }) {
   function generateSwitchRoute(element, index) {
 
     return <Route exact path={element.path} render={() => element.component()} key={index} />
-    // return <PrRoute exact path={element.path} render={() => element.component()} key={index} />
   }
   console.log('menuNodes', menuNodes)
   return (

@@ -27,24 +27,22 @@ namespace ChatPOC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
 
               builder
                   .AllowAnyMethod()
                   .AllowAnyHeader()
                   .WithOrigins("http://localhost:3000")
-                  //.AllowAnyOrigin()
                   .AllowCredentials()));
 
             services.AddCors(options => options.AddPolicy("CorsPostPolicy", builder =>
-
                   builder
                       .AllowAnyMethod()
                       .AllowAnyHeader()
                       .AllowAnyOrigin()
                       ));
             services.AddSignalR();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

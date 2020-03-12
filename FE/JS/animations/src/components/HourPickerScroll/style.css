@@ -1,0 +1,21 @@
+.timePickerScroll {
+  float: left;
+  font-size: var(--font-size-xl);
+}
+
+.timePickerScroll * {
+  user-select: none;
+}
+
+.timePickerScroll .wrapper {
+  float: left;
+  display: flex;
+}
+
+.timePickerScroll .wrapper .colon {
+  display: flex;
+  padding: 0 8px 0 8px;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -1,0 +1,11 @@
+.colorMatrixCmpt {
+  height: 100%;
+  width: 100%;
+  background-color: goldenrod;
+}
+
+.colorMatrixCmpt .cell {
+  width: 20px;
+  height: 20px;
+  float: left;
+}

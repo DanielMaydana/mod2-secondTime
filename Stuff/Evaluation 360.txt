@@ -1,0 +1,106 @@
+EVALUACION 360
+
+Lee y entiende un PRD
+- Documento de requerimientos
+- Qué/propósito/objetivo
+- No detalles técnicos/cómo
+
+Entiende que son requirimientos funcionales
+- Funcionalidad especifica
+- Que funcione
+- eg: Quiero ver las notas >>> Mostrar las notas
+
+Entinde No funcionales
+- Uso de la tecnologia
+- Que tan bien funciona
+- eg: Escalabilidad, performance, robustez, manejo de errores
+
+Propone US
+- Convierte los Requerimientos en US
+
+Dominio del sistema
+- Son el conjunto de elementos y como se maneja
+
+Relacion producto/tecnologia
+- eg: Notificaciones en tiempo real >>> Usar SignalR
+
+
+INTEGRACION, LINEAMIENTOS DEL EQUIPO
+
+Identificar necesidades del entorno para el equipo 
+- Atento a necesidades del equipo
+
+Reportar los riesgos con el proyecto
+- Como las necesidades afectan al proyecto
+
+Prepara una planificacion de sus actividades
+- Cuales son las tareas que voy a hacer
+- No improvisar el orden de las tareas
+
+Planifica actividades para prevenir riesgos
+- eg: Trabajar en los puntos de integracion
+- eg: Mañana me faltare y hoy trabajare dos horas extra
+
+Recibe y sigue instrucciones, reporta su avanze
+- RECIBIR: Sabe escuchar, esperar a que alguien acabe de hablar
+- SEGUIR: Presentan el resultado de lo que se ha entendido, ha seguido pautas/pasos
+- REPORTAR: Informa del estado de su avanze por dia o medio dia, sin necesidad de que se le exiga
+
+Realiza estimaciones para areas especificas con supervision
+- Estimacion de esfuerzo de las US
+- Considerar riesgos, documentacion, tests
+- Se espera que se nos supervise como juniors
+
+Realiza un analisis de factibilidad
+- Que tan practico es hacer una solucion
+- Impacto de sugerencias hacemos
+
+Entinde y sigue las prioridades del equipo
+- eg: Enfocarse en los unit tests
+- eg: Terminar las US
+
+Aplica coding standards
+- Escribir correctamente el codigo
+- Tener cuidado con la dependencia de las herramientas
+
+Rastreo metódico de bugs
+- Definir claramente el proceso de busqueda de bugs
+- Evitar el metodo tanteo
+
+Mantenimiento de codigo con supervision
+- Consultar las soluciones propuestas
+
+Elabora documentos tecnicos
+- Formatos, formas de entrtegar
+- Documento organizado, poner titulos
+
+Code Review con supervision
+- Preguntar al hacer code review
+
+Hace unit testing
+- Hacerlo con codigo manejado por el equipo, no cuando es codigo legado
+- No siempre es requerido, pero siempre es bueno hacerlo (deseable)
+- Si no es requerido, prioritizar tareas sobre unit testing
+
+Codigo que se recupere de situaciones de errores
+- Casos negativos
+- Casos de borde
+- Unexpected cases
+
+Uso de recursos
+- Controlar el uso de iteraciones, conexiones (reusar, liberar),
+- Recursos: memoria, disco, internet
+
+Core concepts of the language used
+- Conoce el lenguaje
+- Conoce tipos, delegados, interfaces, clases (C#)
+
+Proceso de integracion
+- Respetar las firmas, JSONS
+- Test integration, set minimo de pruebas
+
+Generacion de builds
+- Manejar conceptos de deployment
+- Conocer los entornos de produccion
+- Como lanzar builds, quien es el responsable de los builds, donde probar cambios deployados
+

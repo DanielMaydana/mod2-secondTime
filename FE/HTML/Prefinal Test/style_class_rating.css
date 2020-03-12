@@ -1,0 +1,104 @@
+.right-front .class-rating {
+  height: 380px;
+}
+
+.right-front .class-rating .title {
+  padding-bottom: 24px;
+}
+
+.right-front .class-rating .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 34px 0 34px;
+}
+
+.header .period-selector .period-option {
+  float: left;
+  color: var(--surface-1);
+  font-size: var(--font-size-s);
+}
+
+.period-selector > .period-option + .period-option {
+  margin-left: 24px;
+}
+
+.period-selector > .period-option:first-of-type {
+  margin-right: 24px;
+}
+
+.class-rating .title {
+  color: var(--primary-4);
+}
+
+/* GRAPH */
+
+.class-rating .graph {
+  position: relative;
+  height: calc(100% - 63px);
+  width: 100%;
+  --y-axis-width: 40px;
+  --x-axis-height: 20px;
+}
+
+.class-rating .graph > * {
+  position: absolute;
+}
+
+.class-rating .graph .y-axis {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--y-axis-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 0 20px 0;
+}
+
+.class-rating .graph .x-axis {
+  bottom: 0;
+  right: 0;
+  height: var(--x-axis-height);
+  width: calc(100% - var(--y-axis-width));
+  display: flex;
+  justify-content: space-between;
+}
+
+.class-rating .graph .canvas {
+  top: 0;
+  left: var(--y-axis-width);
+  height: calc(100% - var(--x-axis-height));
+  width: calc(100% - var(--y-axis-width));
+  padding: 40px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.graph .canvas .line {
+  height: 2px;
+  width: 100%;
+  background-color: var(--surface-0);
+  margin: 9px 0 9px 0;
+}
+
+.class-rating .graph .mark {
+  height: 20px;
+  font-size: var(--font-size-s);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--surface-1);
+}
+
+.graph .circle {
+  position: absolute;
+  color: white;
+  background-color: var(--primary-4);
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

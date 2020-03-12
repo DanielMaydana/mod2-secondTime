@@ -1,0 +1,93 @@
+.hourPickerCmpt {
+  --slider-side: 44px;
+  --legend-height: 24px;
+  --slider-length: 600px;
+  width: calc(var(--slider-length) + var(--slider-side));
+}
+
+.hourPickerCmpt, .hourPickerCmpt > * {
+  float: left;
+}
+
+.hourPickerCmpt .hour-picking {
+  height: calc(var(--slider-side) * 1.25 + 28px);
+  position: relative;
+  width: 100%;
+}
+
+.hourPickerCmpt .hour-picking * {
+  user-select: none;
+} 
+
+.hourPickerCmpt .hour-picking .time-axis {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.hour-picking .time-axis > * {
+  float: left;
+}
+
+.hour-picking .time-axis .timeline {
+  margin-left: calc(var(--slider-side) / 2);
+  width: calc(100% - var(--slider-side));
+  background-color: var(--background-4);
+  height: 4px;
+}
+
+.hour-picking .drag-wrapper .slider {
+  background-color: var(--secondary-2);
+  height: var(--slider-side);
+  width: var(--slider-side);
+  border-radius: 50% 50% 0;
+  transform: rotate(45deg);
+  line-height: var(--slider-side);
+  text-align: center;
+  cursor: pointer;
+}
+
+.hour-picking .drag-wrapper {
+  float: left;
+}
+
+.hour-picking .time-axis .legends {
+  height: var(--legend-height);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.drag-wrapper .slider .hourValue {
+  color: var(--background-1);
+  transform: rotate(-45deg);
+  font-size: var(--font-size-s);
+}
+
+/* HOUR-MARKER */
+
+.hour-picking .time-axis .hour-mark {
+  width: 50px;
+  line-height: var(--legend-height);
+  text-align: center;
+}
+
+/* TIMEOFDAY */
+
+.hourPickerCmpt .timeofday-picking {
+  padding: 12px;
+  width: 100%;
+}
+
+.timeofday-picking > .timeofday {
+  float: left;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: lightgrey;
+  font-size: var(--font-size-m);
+}
+
+.timeofday-picking > .timeofday + .timeofday {
+  margin-left: 12px;
+}

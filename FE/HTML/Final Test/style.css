@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  position: relative;
+}
+
+#root #coffee-img {
+  background-color: rgb(49, 49, 49);
+  width: 240px;
+  height: 240px;
+  line-height: 240px;
+  text-align: center;
+  position: relative;
+}
+
+#coffee-img > * {
+  position: absolute;
+}
+
+
+#coffee-img .table {
+  height: 180px;
+  width: 180px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  background-color: rgb(245, 245, 245);
+  border-radius: 50%;
+}
+
+#coffee-img .paper {
+  width: 80px;
+  height: 120px;
+  background-color: white;
+  transform: rotate(40deg);
+  top: 100px;
+  left: 60px;
+  box-shadow: 10px 5px 13px -4px rgba(0,0,0,0.65);
+  z-index: 1000;
+}
+
+#coffee-img .stain {
+  background-color: rgb(180, 144, 43);
+  border-radius: 50%;
+}
+
+#coffee-img .stain.a { 
+  height: 10px; width: 10px;
+  top: 91px;
+  left: 186px;
+  z-index: 2000;
+}
+
+#coffee-img .stain.b { 
+  height: 6px; width: 6px;
+  top: 85px;
+  left: 198px;
+  z-index: 2000;
+}
+
+#coffee-img .mug {
+  z-index: 2000;
+  top: 45px;
+  left: 155px;
+}
+
+#coffee-img .mug .cup {
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  background-color: rgb(180, 144, 43);
+  border: 6px solid white;
+  top: 44px;
+  left: 140px;
+  z-index: 2000;
+  box-shadow: 10px 5px 13px -4px rgba(0,0,0,0.65);
+}
+
+#coffee-img .mug .handle {
+  height: 6px;
+  border-radius: 3px;
+  width: 16px;
+  top: 19px;
+  left: 38px;
+  position: absolute;
+  background-color: white;
+  z-index: 1500;
+}
+
+#coffee-img .pencil {
+  width: 10px;
+  height: 60px;
+  background-color: gold;
+  z-index: 2500;
+  transform: rotate(55deg);
+  top: 80px;
+  left: 60px;
+  box-shadow: 10px 5px 13px -4px rgba(0,0,0,0.65);
+  clip-path: polygon(0px 12px, 0px 60px, 10px 60px, 10px 12px, 5px 0px);
+}
+
+#coffee-img .pencil::after {
+  content: ' ';
+  width: 100%;
+  display: block;
+  height: 8px;
+  background-color: rgb(255, 231, 204);
+}
+
+#coffee-img .pencil::before {
+  content: ' ';
+  width: 100%;
+  display: block;
+  height: 4px;
+  background-color: black;
+}
+

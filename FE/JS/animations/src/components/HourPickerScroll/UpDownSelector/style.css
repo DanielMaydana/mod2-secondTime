@@ -1,0 +1,56 @@
+.upDownSelectorCmpt {
+  --default-width: 52px;
+  --default-height: 98px;
+  width: var(--default-width);
+  height: var(--default-height);
+  font-size: var(--font-size-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-rows: 1fr 2fr 1fr;
+  color: var(--secondary-2);
+  font-weight: bolder;
+}
+
+.upDownSelectorCmpt .selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.upDownSelectorCmpt .selector:hover::after {
+  background-color: var(--secondary-1);
+}
+
+.upDownSelectorCmpt .selector::after {
+  content: ' ';
+  height: 14px;
+  width: 28px;
+  display: block;
+  clip-path: polygon(0% 33%, 50% 100%, 100% 33%, 100% 0%, 50% 66%, 0% 0%);
+  background-color: var(--background-4);
+  transition: background-color 180ms ease-in-out
+}
+
+.upDownSelectorCmpt .selector.up {
+  grid-row: 1 / span 1;
+  transform: rotate(180deg);
+}
+
+.upDownSelectorCmpt .selector.down {
+  grid-row: 3 / span 1;
+}
+
+.upDownSelectorCmpt .value {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 2 / span 1;
+  text-align: center;
+}

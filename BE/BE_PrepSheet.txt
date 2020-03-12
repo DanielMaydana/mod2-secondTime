@@ -1,0 +1,12 @@
+Main Namespace:
+FJala.Yachaq.Notifications
+
+Projects:
+Common
+DataAccess
+DTOs
+NotificationsBO
+Services
+Tests
+
+EntityFrameworkCore

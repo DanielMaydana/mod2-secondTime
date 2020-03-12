@@ -4,16 +4,16 @@
   width: var(--default-width);
   height: var(--default-height);
   font-size: var(--font-size-xl);
+  color: var(--secondary-2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   grid-template-rows: 1fr 2fr 1fr;
-  color: var(--secondary-2);
   font-weight: bolder;
 }
 
-.upDownSelectorCmpt .selector {
+.upDownSelectorCmpt .arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,11 +22,11 @@
   cursor: pointer;
 }
 
-.upDownSelectorCmpt .selector:hover::after {
+.upDownSelectorCmpt .arrow:hover::after {
   background-color: var(--secondary-1);
 }
 
-.upDownSelectorCmpt .selector::after {
+.upDownSelectorCmpt .arrow::after {
   content: ' ';
   height: 14px;
   width: 28px;
@@ -36,12 +36,12 @@
   transition: background-color 180ms ease-in-out
 }
 
-.upDownSelectorCmpt .selector.up {
+.upDownSelectorCmpt .arrow.up {
   grid-row: 1 / span 1;
   transform: rotate(180deg);
 }
 
-.upDownSelectorCmpt .selector.down {
+.upDownSelectorCmpt .arrow.down {
   grid-row: 3 / span 1;
 }
 

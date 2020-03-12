@@ -1,21 +1,21 @@
-.timePickerScroll {
+.timePickerUpDown {
   float: left;
   font-size: var(--font-size-xl);
+  color: var(--secondary-2);
 }
 
-.timePickerScroll * {
+.timePickerUpDown * {
   user-select: none;
 }
 
-.timePickerScroll .wrapper {
+.timePickerUpDown .wrapper {
   float: left;
   display: flex;
 }
 
-.timePickerScroll .wrapper .colon {
+.timePickerUpDown .wrapper .colon {
   display: flex;
   padding: 0 8px 0 8px;
   justify-content: center;
   align-items: center;
 }
-

@@ -45,3 +45,21 @@ html, body {
   box-sizing: border-box;
   font-family: 'Karla', sans-serif;
 }
+
+
+.App .timePickerWrapper {
+  padding: 8px;
+  border: 1px solid var(--background-4);
+  border-radius: 8px;
+}
+
+.App .timePickerWrapper .timePickerTitle {
+  font-size: var(--font-size-m);
+  width: 100%;
+  text-align: center;
+  padding: 4px 0 8px 0;
+}
+
+.App .timePickerWrapper + .timePickerWrapper {
+  margin-left: 34px;
+}

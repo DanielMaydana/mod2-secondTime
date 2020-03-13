@@ -1,5 +1,5 @@
 import React from "react"
-import HourPickerUpDown from './components/TimePickerUpDown'
+import TimePickerUpDown from './components/TimePickerUpDown'
 import { generateTimeRange, getUpdatedTime } from './components/TimePickerUpDown/helpers'
 import "./App.css"
 function App () {
@@ -27,11 +27,16 @@ function App () {
 
   return (
     <div className="App">
-      <HourPickerUpDown value={time} onChange={onChange}/>
+      <div className="timePickerWrapper">
+        <div className="timePickerTitle">Start Time</div>
+        <TimePickerUpDown value={time} onChange={onChange}/>
+      </div>
+      <div className="timePickerWrapper endTime">
+        <div className="timePickerTitle">End Time</div>
+        <TimePickerUpDown value={time} onChange={onChange}/>
+      </div>
     </div>
   )
 }
-
-
 
 export default App

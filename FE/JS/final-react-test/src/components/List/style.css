@@ -1,0 +1,27 @@
+.listCmpt {
+  --list-width: 340px;
+  width: var(--list-width);
+  height: 500px;
+  float: left;
+  color: grey;
+  border: 1px solid grey;
+}
+
+.listCmpt > * {
+  width: 100%;
+}
+
+.listCmpt .entries {
+  height: 80%;
+  overflow-y: auto;
+}
+
+.listCmpt .title {
+  box-sizing: border-box;
+  padding: 12px;
+  height: 20%;
+}
+
+.listCmpt .entries > .entry + .entry {
+  border-top: 1px solid grey;
+}

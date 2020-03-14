@@ -1,0 +1,49 @@
+.entry {
+  height: auto;
+  float: left;
+  position: relative;
+  color: grey;
+  width: 100%;
+}
+
+.entry > * {
+  float: left;
+}
+
+.entry .avatar {
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  height: 80px;
+  width: 80px;
+  padding: 12px;
+}
+
+.entry .avatar .circle {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+}
+
+.entry .description {
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  float: right;
+  width: calc(100% - 80px);
+  height: 108px;
+  padding: 12px;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.entry .upvotes {
+  width: 76px;
+  height: 20px;
+  padding: 4px 0 4px 4px;
+  text-align: center;
+}

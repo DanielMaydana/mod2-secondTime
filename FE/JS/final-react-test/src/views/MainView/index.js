@@ -1,34 +1,55 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import List from '../../components/List'
+import FilteredList from '../../components/FilteredList'
 import mockResponse from './catFacts'
 import useApi from '../../restApi/useApi'
 import './style.css'
-import Cookie from 'js-cookie'
 
 export default function MainView () {
 
   const [response] = useApi(GET_CAT_INFO)
   
   async function GET_CAT_INFO () {
-    return mockResponse()
+
+    const localResponse = JSON.parse(localStorage.getItem('response'))
+    if(Boolean(localResponse)) {
+      return localResponse
+    }
+    else {
+      const response = await mockResponse()
+      localStorage.setItem('response', JSON.stringify(response))
+      return response
+    }
   }
 
-  const hasLoaded = response && response.all
+  const hasResponse = response && response.all
 
   function generateLists () {
     return (
       <>
-        <List values={response.all} title={'All'} type={'popularity'}/>
-        <List values={response.all} title={'Most popular'} type={'username'}/>
-        <List values={response.all} title={'By User'} type={'regular'} />
-        <List values={response.all} title={'Custom'} type={'custom'} />
+        <List
+          values={response.all}
+          header={'All'}
+          type={'regular'} s/>
+        <List
+          values={response.all}
+          header={'Most popular'}
+          type={'popularity'} />
+        <List
+          values={response.all}
+          header={'By User'}
+          type={'username'} />
+        <FilteredList
+          values={response.all}
+          header={'Custom'}
+          type={'regular'} />
       </>
     )
   }
 
   return (
     <div className="mainView">
-      { hasLoaded && generateLists() }
+      { hasResponse && generateLists() }
     </div>
   )
 }

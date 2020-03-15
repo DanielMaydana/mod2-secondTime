@@ -3,6 +3,22 @@
 body, html {
   height: 100vh;
   width: 100vw;
+  --black-rebel-motorcycle-club: rgb(22, 22, 22);
+  --yachaq: rgb(112, 194, 187);
+  --primary-1: #025373;
+  --primary-2: #022840;
+  --secondary-1: #5B98A6;
+  --secondary-2: #025e73;
+  --background-1: #f5f5f5;
+  --background-2: #F4F4F5;
+  --background-3: #E5E5E6;
+  --background-4: #CBCCCC;
+  --surface-1: #777777;
+  --surface-2: #55595C;
+  --surface-3: #373A3C;
+  --danger: #EE2E24;
+  --warning: #F58026;
+  --success: #00A261;
 }
 
 * {
@@ -13,7 +29,7 @@ body, html {
 }
 
 #root {
-  background-color: rgb(22, 22, 22);
+  background-color: var(--yachaq);
   height: 100%;
   width: 100%;
   display: flex;
@@ -33,4 +49,7 @@ body, html {
     calc(var(--crop-width) * 2) var(--photo-height),
     calc(var(--crop-width) * 2) 0px
   )
+}
+
+canvas {
 }

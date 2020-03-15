@@ -1,0 +1,29 @@
+.sliderCmpt {
+  height: 100%;
+  width: 100%;
+  background-color: indianred;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  --slide-width: 520px;
+  --slide-height: 380px;
+}
+
+.sliderCmpt .viewer {
+  height: var(--slide-height);
+  width: calc(var(--slide-width));
+  background-color: lightgreen;
+}
+
+.viewer .slide {
+  height: var(--slide-height);
+  width: var(--slide-width);
+  background-color: lemonchiffon;
+  opacity: 0.1;
+  float: left;
+}
+
+.slide.active {
+
+}

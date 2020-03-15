@@ -6,6 +6,6 @@
   justify-content: center;
 }
 
-.mainView > .listCmpt + .listCmpt {
+.mainView > * + * {
   margin-left: 24px;
 } 

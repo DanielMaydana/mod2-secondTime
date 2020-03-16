@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yachaq.Trainers.DataAccess\Yachaq.Trainers.DataAccess.csproj" />
+    <ProjectReference Include="..\Yachaq.Trainers.DTOs\Yachaq.Trainers.DTOs.csproj" />
+    <ProjectReference Include="..\Yachaq.Trainers.Models\Yachaq.Trainers.Models.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJala.Attendance.Service", "FJala.Attendance.Service\FJala.Attendance.Service.csproj", "{A61A3175-2D3F-47F3-BDFC-E3FAEB38856F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJala.Attendance.BusinessLogic", "FJala.Attendance.BusinessLogic\FJala.Attendance.BusinessLogic.csproj", "{E5A8EE8A-FD85-4B9B-81D4-DE21BF95AEA0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJala.Attendance.DTOs", "FJala.Attendance.DTOs\FJala.Attendance.DTOs.csproj", "{ED6BC81C-BACB-4A27-BC87-2EB9319A3000}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJala.Attendance.DataAccess", "FJala.Attendance.DataAccess\FJala.Attendance.DataAccess.csproj", "{03E4D10F-C912-4779-817F-9D737D7F0611}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FJala.Attendance.Models", "FJala.Attendance.Models\FJala.Attendance.Models.csproj", "{F43E8F8F-837D-4518-BD76-4F49201E9EDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FJala.Attendance.Common", "FJala.Attendance.Common\FJala.Attendance.Common.csproj", "{7DF45833-9893-49A1-A494-BB94310255B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A61A3175-2D3F-47F3-BDFC-E3FAEB38856F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A61A3175-2D3F-47F3-BDFC-E3FAEB38856F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A61A3175-2D3F-47F3-BDFC-E3FAEB38856F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A61A3175-2D3F-47F3-BDFC-E3FAEB38856F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A8EE8A-FD85-4B9B-81D4-DE21BF95AEA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A8EE8A-FD85-4B9B-81D4-DE21BF95AEA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A8EE8A-FD85-4B9B-81D4-DE21BF95AEA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A8EE8A-FD85-4B9B-81D4-DE21BF95AEA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6BC81C-BACB-4A27-BC87-2EB9319A3000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6BC81C-BACB-4A27-BC87-2EB9319A3000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6BC81C-BACB-4A27-BC87-2EB9319A3000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6BC81C-BACB-4A27-BC87-2EB9319A3000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E4D10F-C912-4779-817F-9D737D7F0611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E4D10F-C912-4779-817F-9D737D7F0611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E4D10F-C912-4779-817F-9D737D7F0611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E4D10F-C912-4779-817F-9D737D7F0611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43E8F8F-837D-4518-BD76-4F49201E9EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43E8F8F-837D-4518-BD76-4F49201E9EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43E8F8F-837D-4518-BD76-4F49201E9EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43E8F8F-837D-4518-BD76-4F49201E9EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF45833-9893-49A1-A494-BB94310255B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF45833-9893-49A1-A494-BB94310255B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF45833-9893-49A1-A494-BB94310255B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF45833-9893-49A1-A494-BB94310255B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1EF83EC-429E-418F-BB27-71F07CD92504}
+	EndGlobalSection
+EndGlobal

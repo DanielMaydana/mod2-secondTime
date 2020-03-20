@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "assert": "^2.0.0",
     "material-icons-react": "^1.0.4",
+    "moment": "^2.24.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-draggable": "^4.2.0",

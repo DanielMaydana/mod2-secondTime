@@ -19,7 +19,7 @@
 
   const BROWSER_WIDTH = 720
   const BROWSER_HEIGHT = Math.floor(BROWSER_WIDTH * 768/1024)
-
+  
   let isSpinning = false
 
 
@@ -128,7 +128,7 @@
 
     requestAnimationFrame(animate)
   }
-
+  
   // update & render
   animate()
-})() 
+})()

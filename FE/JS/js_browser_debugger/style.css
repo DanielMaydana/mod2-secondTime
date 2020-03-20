@@ -29,7 +29,8 @@ body, html {
 }
 
 #root {
-  background-color: var(--yachaq);
+  /* background-color: var(--black-rebel-motorcycle-club); */
+  background-color: rgb(102, 102, 102);
   height: 100%;
   width: 100%;
   display: flex;
@@ -49,7 +50,4 @@ body, html {
     calc(var(--crop-width) * 2) var(--photo-height),
     calc(var(--crop-width) * 2) 0px
   )
-}
-
-canvas {
 }

@@ -1,40 +1,43 @@
 import React from "react"
-import TimePickerUpDown from './components/TimePickerUpDown'
-import { generateTimeRange, getUpdatedTime } from './components/TimePickerUpDown/helpers'
 import "./App.css"
+import moment from 'moment'
+
 function App () {
 
-  const [time, setTime] = React.useState({
-    hour: { symbol: '00', index: 0 },
-    minute: { symbol: '00', index: 0 }
-  })
-  const HOURS_RANGE = { min : 0, max : 23, step : 1 }
-  const MINS_RANGE = { min : 0, max : 55, step : 5 }
-  const CLOCK_TIME = {
-    hours: generateTimeRange({ ...HOURS_RANGE }),
-    minutes: generateTimeRange({ ...MINS_RANGE })
-  }
-  function onChange (event) {
-    const { hour, minute } = event
-    const newHour = getUpdatedTime(hour, CLOCK_TIME.hours)
-    const newMinute = getUpdatedTime(minute, CLOCK_TIME.minutes)
+  const originalStart = new Date(2020, 3, 16, 8, 30, 0)
+  const originalEnd = new Date(2020, 3, 16, 9, 30, 0)
 
-    setTime({
-      hour: newHour,
-      minute: newMinute
-    })
-  } 
+  const movedStart = new Date(2020, 3, 24, 8, 30, 0)
+  const movedEnd = getRescheduleEndDate(originalStart, originalEnd, movedStart)
+
+  console.log(movedEnd)
+
+  function getRescheduleEndDate (originalStart, originalEnd, movedStart) {
+
+    const deltaTime = getTimeDifference(originalStart, originalEnd)
+
+    console.log(deltaTime)
+
+    const momentOriginalStart = moment(originalStart.getTime())
+    return momentOriginalStart.format('YYYY MM DD hh:mm')
+
+
+  }
+
+  function getTimeDifference (start, end) {
+    const deltaTime = end - start
+    var diffDays = Math.floor(deltaTime / 86400000)
+    var diffHrs = Math.floor((deltaTime % 86400000) / 3600000)
+    var diffMins = Math.round(((deltaTime % 86400000) % 3600000) / 60000)
+    return {
+      diffDays,
+      diffHrs,
+      diffMins
+    }
+  }
 
   return (
     <div className="App">
-      <div className="timePickerWrapper">
-        <div className="timePickerTitle">Start Time</div>
-        <TimePickerUpDown value={time} onChange={onChange}/>
-      </div>
-      <div className="timePickerWrapper endTime">
-        <div className="timePickerTitle">End Time</div>
-        <TimePickerUpDown value={time} onChange={onChange}/>
-      </div>
     </div>
   )
 }

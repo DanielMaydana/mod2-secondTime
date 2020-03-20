@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FJala.Attendance.Common\FJala.Attendance.Common.csproj" />
+    <ProjectReference Include="..\FJala.Attendance.DataAccess\FJala.Attendance.DataAccess.csproj" />
+    <ProjectReference Include="..\FJala.Attendance.DTOs\FJala.Attendance.DTOs.csproj" />
+    <ProjectReference Include="..\FJala.Attendance.Models\FJala.Attendance.Models.csproj" />
+  </ItemGroup>
+
+</Project>
